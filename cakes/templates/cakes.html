@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+{% for cake in cakes %}
+<p>{{ cake.name }}</p>
+<img src= "{{ cake.image.url }}">
+{% endfor %}
+
+{% endblock %}

@@ -1,7 +1,14 @@
 from django.shortcuts import render
+from .models import Cake, Category
 
 # Create your views here.
 
 
-def index(request):
-    return render(request, 'index.html')
+def all_cakes(request):
+    cakes = Cake.objects.all()
+    categories = None
+
+    if request.GET:
+        cakes = cakes
+    context = {'cakes': cakes}
+    return render(request, 'cakes.html', context)

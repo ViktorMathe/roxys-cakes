@@ -1,0 +1,37 @@
+[{
+    "pk": 1,
+    "model": "cakes.category",
+    "fields": {
+        "name": "macarons",
+        "friendly_name": "Macarons"
+    }
+}, {
+    "pk": 2,
+    "model": "cakes.category",
+    "fields": {
+        "name": "cupcakes",
+        "friendly_name": "Cupcakes"
+    }
+}, {
+    "pk": 3,
+    "model": "cakes.category",
+    "fields": {
+        "name": "birthday_cakes",
+        "friendly_name": "Birthday Cakes"
+    }
+}, {
+    "pk": 4,
+    "model": "cakes.category",
+    "fields": {
+        "name": "hungarian_cakes",
+        "friendly_name": "Hungarian Cakes"
+    }
+}, {
+    "pk": 5,
+    "model": "cakes.category",
+    "fields": {
+        "name": "occasional_cakes",
+        "friendly_name": "Cakes For Occasions"
+    }
+}
+]
