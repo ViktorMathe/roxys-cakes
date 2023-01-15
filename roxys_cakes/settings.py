@@ -93,8 +93,21 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'roxy@roxyscakes.com'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
+SITE_ID = 1
+
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-viktormathe-roxyscakes-mgc4st38c33.ws-eu81.gitpod.io/*']
+    'https://8000-viktormathe-roxyscakes-mgc4st38c33.ws-eu82.gitpod.io/*']
 
 WSGI_APPLICATION = 'roxys_cakes.wsgi.application'
 
