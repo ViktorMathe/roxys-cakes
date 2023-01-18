@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <form method="POST" action="{% url 'add_cake' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+    </form>
+</div>
+
+{% endblock %}
