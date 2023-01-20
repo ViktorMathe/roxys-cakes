@@ -37,7 +37,7 @@ def add_cake(request):
 def delete_cake(request, cake_id):
     cake = get_object_or_404(Cake, pk=cake_id)
     cake.delete()
-    return redirect(reverse('cakes.html'))
+    return redirect(reverse('cakes'))
 
 
 @login_required
@@ -47,6 +47,7 @@ def edit_cake(request, cake_id):
         form = CakeForm(request.POST, request.FILES, instance=cake)
         if form.is_valid():
             form.save()
+            return redirect(reverse('cakes'))
     else:
         form = CakeForm(instance=cake)
 
@@ -56,4 +57,14 @@ def edit_cake(request, cake_id):
         'cake': cake
     }
 
+    return render(request, template, context)
+
+
+def cake_details(request, cake_id):
+    cake = get_object_or_404(Cake, pk=cake_id)
+
+    template = 'cake_details.html'
+    context = {
+        'cake': cake
+    }
     return render(request, template, context)

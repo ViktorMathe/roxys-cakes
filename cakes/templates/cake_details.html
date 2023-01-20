@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    <img class="card-img-top img-fluid" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+    <p>{{ cake.name }}</p>
+    <p>{{ cake.description }}</p>
+    <p>£{{ cake.price }}</p>
+</div>
+
+{% endblock %}

@@ -88,6 +88,8 @@ TEMPLATES = [
     },
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -109,8 +111,7 @@ LOGIN_REDIRECT_URL = '/'
 
 SITE_ID = 1
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-viktormathe-roxyscakes-mgc4st38c33.ws-eu82.gitpod.io/*']
+CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
 
 WSGI_APPLICATION = 'roxys_cakes.wsgi.application'
 

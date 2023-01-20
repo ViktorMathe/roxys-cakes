@@ -6,11 +6,11 @@
 {% for cake in cakes %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">{% if cake.image %}
-                            <a href="#">
+                            <a href="{% url 'cake_details' cake.id %}">
                                 <img class="card-img-top img-fluid" src="{{ cake.image.url }}" alt="{{ cake.name }}">
                             </a>
                             {% else %}
-                            <a href="#">
+                            <a href="{% url 'cake_details' cake.id %}">
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ cake.name }}">
                             </a>
                             {% endif %}
@@ -27,6 +27,10 @@
                                                 <i class="fas fa-tag mr-1"></i>{{ cake.category.friendly_name }}
                                             </a>
                                         </p>
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_cake' cake.id %}">Edit</a> | 
+                                            <a class="text-danger" href="{% url 'delete_cake' cake.id %}">Delete</a>
+                                        </small>
                                         {% endif %}
                                         </div>
                                 </div>
