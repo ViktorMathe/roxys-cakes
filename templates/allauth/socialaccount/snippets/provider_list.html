@@ -17,4 +17,5 @@
   <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
      href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
 </li>
+<a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
 {% endfor %}

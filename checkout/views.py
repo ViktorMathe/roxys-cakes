@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-
+import os
 import stripe
 
 # Create your views here.
-stripe.api_key = ''
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
 
 def create_checkout_session(request):
@@ -19,7 +19,7 @@ def create_checkout_session(request):
                 'quantity': 1,
                 }],
             mode='payment',
-            success_url='',
+            success_url='https://8000-viktormathe-roxyscakes-mgc4st38c33.ws-eu83.gitpod.io/checkout/checkout_success/',
             cancel_url='http://localhost:4242/cancel',
         )
 
