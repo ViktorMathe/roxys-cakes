@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.twitter",
     "allauth.socialaccount.providers.facebook",
+    'bag',
     'cakes',
     'checkout',
     'home',
@@ -90,6 +91,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'bag.context.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -206,3 +208,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DELIVERY_PERCENTAGE = 10
+FREE_DELIVERY = 30
+
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', '')
+STRIPE_CURRENCY = 'gbp'

@@ -1,34 +1,30 @@
-from django.shortcuts import render, redirect
-import os
+from django.shortcuts import render, redirect, reverse
+from django.views.decorators.http import require_POST
+from django.conf import settings
+from .models import Checkout
+from .forms import CheckoutForm
+from cakes.models import Cake
+import json
 import stripe
 
-# Create your views here.
-stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
+def checkout_session(request):
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-def create_checkout_session(request):
-    session = stripe.checkout.Session.create(
-            line_items=[{
-                'price_data': {
-                    'currency': 'usd',
-                    'product_data': {
-                        'name': 'T-shirt',
-                    },
-                    'unit_amount': 2000,
-                },
-                'quantity': 1,
-                }],
-            mode='payment',
-            success_url='https://8000-viktormathe-roxyscakes-mgc4st38c33.ws-eu83.gitpod.io/checkout/checkout_success/',
-            cancel_url='http://localhost:4242/cancel',
-        )
+    form_data = {
+        'full_name': request.POST['full_name'],
+        'email_address': request.POST['email_address'],
+        'phone_number': request.POST['phone_number'],
+        'address_1': request.POST['address_1'],
+        'address_2': request.POST['address_2'],
+        'county': request.POST['county'],
+        'city': request.POST['city'],
+        'post_code': request.POST['post_code'],
+        'country': request.POST['country'],
+    }
 
-    template = 'checkout.html'
-
-    return redirect(session.url, code=303)
-
-
-def checkout_success(request):
-    template = 'checkout_success.html'
-
-    return render(request, template)
+    checkout_form = CheckoutForm(form_data)
+    if checkout_form.is_valid():
+        checkout = checkout_form.save(commit=False)
+        pid = request.POST.get('client_secret').split('_secret')[0]
