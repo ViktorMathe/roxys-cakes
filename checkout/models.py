@@ -2,6 +2,10 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 from django_countries.fields import CountryField
+from cakes.models import Cake
+from django.contrib.auth.models import User
+
+import uuid
 
 # Create your models here.
 
@@ -13,7 +17,7 @@ class Checkout(models.Model):
     phone_number = models.CharField(max_length=24, blank=False, null=False)
     city = models.CharField(max_length=50, blank=False, null=False)
     address_1 = models.CharField(max_length=100, blank=False, null=False)
-    address_2 = models.CharField(max_length=100, blank=False, null=False)
+    address_2 = models.CharField(max_length=100, blank=True, null=True)
     county = models.CharField(max_length=50, blank=True, null=True)
     post_code = models.CharField(max_length=50, blank=False, null=False)
     country = CountryField(
@@ -33,3 +37,38 @@ class Checkout(models.Model):
         Generate a random, unique order number using UUID
         """
         return uuid.uuid4().hex.upper()
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the order number
+        if it hasn't been set already.
+        """
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.order_number
+
+
+class CheckoutLine(models.Model):
+    order = models.ForeignKey(
+        Checkout, null=False, blank=False, on_delete=models.CASCADE,
+        related_name='lineitems')
+    cake = models.ForeignKey(
+        Cake, null=False, blank=False, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False,
+        editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        self.lineitem_total = self.cake.price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'SKU {self.cake.sku} on order {self.order.order_number}'
