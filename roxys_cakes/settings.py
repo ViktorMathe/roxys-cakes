@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_db_signals',
     'allauth',
     'allauth.account',
     'social_django',
@@ -214,4 +215,5 @@ FREE_DELIVERY = 30
 
 STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = env('STRIPE_WH_SECRET', '')
 STRIPE_CURRENCY = 'gbp'

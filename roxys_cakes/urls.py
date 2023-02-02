@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('social_django.urls', namespace='social')),
-    path('checkout/,', include('checkout.urls')),
+    path('checkout/', include('checkout.urls')),
     path('', include('home.urls')),
     path('cakes/', include('cakes.urls')),
     path('bag/', include('bag.urls')),

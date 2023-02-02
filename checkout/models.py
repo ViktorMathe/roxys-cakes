@@ -26,7 +26,7 @@ class Checkout(models.Model):
     bag_total = models.DecimalField(
         max_digits=10, decimal_places=2, default=0, null=False)
     delivery = models.DecimalField(
-        max_digits=8, decimal_places=2, default=0, null=False)
+        max_digits=6, decimal_places=2, default=0, null=False)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, default=0, null=False)
     stripe_pid = models.CharField(
@@ -38,11 +38,20 @@ class Checkout(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
+    def update_total(self):
+        self.bag_total = self.lineitems.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.bag_total < settings.FREE_DELIVERY:
+            self.delivery = (
+                self.bag_total * settings.DELIVERY_PERCENTAGE / 100)
+        else:
+            self.delivery = 0
+        print(self.delivery)
+        print(settings.FREE_DELIVERY)
+        self.order_total = self.bag_total + self.delivery
+        self.save()
+
     def save(self, *args, **kwargs):
-        """
-        Override the original save method to set the order number
-        if it hasn't been set already.
-        """
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
