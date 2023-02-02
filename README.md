@@ -1,108 +1,247 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Roxy's Cakes** 
 
-Welcome ViktorMathe,
+I built this website for my wife's little business what she used to have. Roxy's Cakes is a very easy to use website with bag, payment, reviews and contact features. You can browse from different categories of cakes and add them to the bag where you can process forward to the checkout page.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[You can try it here on the live website!]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Home page]()
 
-## Gitpod Reminders
+## _**Contents**_
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* [User Stories](#user-stories)
 
-`python3 -m http.server`
+* [Features](#features)
+    * [Future ideas](#future-ideas)
+    * [Bag](#bag)
+    * [Payment system](#payment-system)
+    * [Reviews](#reviews)
+    * [Contact us](#contact-us)
 
-A blue button should appear to click: _Make Public_,
+* [Design](#design)
+    * [Colors](#colors)
+    * [Font](#font)
+    * [Images](#images)
+    * [Audio](#audio)
 
-Another blue button should appear to click: _Open Browser_.
+* [Testing](#testing)
+    * [W3C Validator](#w3c-validator)
+    * [CSS Validator](#css-validator)
+    * [Lighthouse](#lighthouse)
+    * [SEO](#seo)
+    * [Manual testing](#manual-testing)
+    * [Solved bugs](#solved-bugs)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* [Technology Used](#technology-used)
 
-A blue button should appear to click: _Make Public_,
+* [Deployment](#deployment)
 
-Another blue button should appear to click: _Open Browser_.
+* [Credits](#credits)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+## _**User Stories**_
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+* I uploaded my User Stories on to my workspace you can find the PDF file [here](./media/readme/user_story/Roxy's%20Cakes%20User%20Stories%20-%20Sheet1.pdf)
+ 
+* You can find the agile method to my user stories on my github repo just click [here](https://github.com/users/ViktorMathe/projects/5/views/1)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## _**Features**_
 
-------
+* 
 
-## Release History
+* 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+* 
+ 
+ ### _Future ideas:_
+ * 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## _**Design**_
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+  * ### _Colors:_
+    * 
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+  * ### _Font:_
+    * 
+ 
+  * ### _Images:_
+    * 
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## _**Testing**_
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+* ### _W3C Validator:_
+    * 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* ### _CSS Validator:_
+    * 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* ### _Lighthouse:_
+    * I done the lighthouse check through an incognito because that is when I got back the true result which were the following:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    ![Image about the lighthouse results]()
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* ### _Manual testing:_
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+    #### **Register New Account**
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+    * Expected: As a User I want to able to register to the website to book my cleaning 
+    * Test: Create new account with username, create new account with already existing username, create new account with and without email address.  
+    * Outcome: If the new account has a username the account is created, if an email address is entered or not. When trying to create a new account with an existing username, the user is encouraged to choose a different username since it already exists. When the account is registered the user is logged in and is notified by an alert. 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+    #### Login
 
-------
+    * Expected: As a registered site user you should be able to log in to your accout to be able to interact with the site.
+    * Test: Check Login functionality as registered user. 
+    * Outcome: When entering valid login details the user is logged in and redirected to the home page and an alert notifies the user that they are logged in. 
 
-## FAQ about the uptime script
+    #### Logout
 
-**Why have you added this script?**
+    * Expected: As a registered and logged in user you should be able to log out of the site. 
+    * Test: Check Logout functionality as logged in user. 
+    * Result: When clicking Logout the user is redirected to Logout page and asked to confirm that they are want to log out. When Log Out button is clicked the user is logged out and redirected to home page and an alert notifies the user that they are logged out.  
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+    #### **Testing as a User**
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+    ##### Add a Review
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+    * Expected : The user can write a review and can upload a picture if wish, and can view it on the review page.
+    * Test: Write a review as a user and upload a picture.
+    * Outcome: When the review has been wrote I get the notification and it appeared on the review page with or without picture.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+    ##### Edit a Review
 
-**So….?**
+    * Expected : The user can edit a review and can upload or delete picture if wish, and get a notification when it is done.
+    * Test: Edit a review as a user and deleted a picture.
+    * Outcome: When the review has been edited I get the notification and it appeared on the review page without picture.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    ##### Delete a Review
 
-**Can I opt out?**
+    * Expected : The user can delete a review.
+    * Test: Delete a review as a user.
+    * Outcome: When the review has been deleted I get the notification and it disappeard from the review page.
+    
+    #### **Testing as a SuperUser**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+    ##### Edit Review
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+    * Expected: The superuser can edit all the reviews do not matter who wrote it.
+    * Test: Edit a review.
+    * Outcome: The review has been edited and still on the review page.
 
-**Anything more?**
+    ##### Delete Review
+    
+    * Expected: The superuser is able to delete any review made by anyone.
+    * Test: Delete review.
+    * Outcome: The review has been deleted from the database and the frontend.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+ * ### _Solved bugs_:
 
----
+    * Bug:
+    Solution: 
 
-Happy coding!
+    * Bug: 
+    Solution: 
+
+
+
+## _**Technology Used**_
+* [Django](https://www.djangoproject.com/ "Django Project website")
+    - Django was used to build the models, forms and views of the app, and was the backbone of this project.
+* [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/ "Bootstrap")
+     - Bootstrap was used to implement the responsiveness of the site, using bootstrap classes, but also other styling such as buttons etc.
+* [AWS](https://cloudinary.com/ "AWS")
+     - Amazon Web Sevices was used as free cloud storage for images uploaded to the site through the cake,review and contact us forms.
+* [Stripe](https://stripe.com/en-gb "Stripe website")
+     - Stripe features was used to allow to use card payments online.
+* [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/ "Crispy Forms documentation")
+    - Crispy Forms was used to style the add and edit recipe forms, allowing more than one field to occupy a line on the form.
+* [Google Fonts](https://fonts.google.com/ "Google Fonts")
+    - Google fonts were used to import the fonts "Lato" into the style.css file. These fonts were used throughout the project.
+* [Font Awesome](https://fontawesome.com/ "FontAwesome")
+     - Font Awesome was used on all pages throughout the website to import icons (e.g. social media icons) for UX purposes.
+* [GitPod](https://git-scm.com/ "GitPod")
+     - Git was used for version control by utilizing the GitPod terminal to commit to Git and push to GitHub.
+* [GitHub](https://github.com/ "Link to GitHub")
+     - GitHub was used to store the project after pushing
+* [ElephantSQL](https://www.elephantsql.com/ "ElephantSQL Database")
+    - ElephantSQL was used to the new database instead of the Heroku's Postgres
+* [Google Maps API](https://developers.google.com/maps/documentation/javascript/marker-clustering/ "Google Maps API")
+ -  Google Maps API was used to make the map visible on the site with the marker on it.
+
+## _**Deployment**_
+
+* Create the Heroku App:
+    - Select "Create new app" in Heroku.
+    - Choose a name for your app and select the location.
+
+* Connect GitHub repo:
+    - On the deploy tab you choose the deployment method GitHub
+    - You type your GitHub repo name to connect with Heroku
+    - Click Connect
+
+* Attach the ElephantSQL database (instead of Postgre on Heroku):  
+    - Login to the ElephantSQL website
+    - Create New Instance
+    - Have to give a name to the plan and had to choose the Tiny Turtle plan which is free
+    - Select the region, and data center near your location
+    - Click Review and Create Instance
+    - Return to the dashboard and click on the instance name and copy the ElephantSQL database URL
+    - On the Heroku website go to the settings, reveal config vars
+    - Add a new config var called DATABASE_URL and paste your ElephantSQL database url and click Add
+    - The database has been added
+
+
+* Prepare the environment and settings.py file:
+    - In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+    - In your GitPod workspace, create an env.py file in the main directory. 
+    - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+    - Add the SECRET_KEY value to the Config Vars in Heroku.
+    - Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
+    - Update the Config Vars with the AWS url, adding into the settings.py file also.
+    - In settings.py add the following sections:
+        - Had to the add the followings to the INSTALLED_APPS list:
+            - allauth ( for the register/login)
+            - crispy forms
+            - storages (for the AWS storage)
+        - MESSAGE_TAGS ( to get the pop up messages if some action happened)
+        - AWS, DATABASE
+            - AWS_S3_OBJECT_PARAMETERS (for AWS cache control)
+            - AWS_STORAGE_BUCKET_NAME (for to use the AWS)
+            - AWS_S3_REGION_NAME
+            - AWS_ACCESS_KEY_ID
+            - AWS_SECRET_ACCESS_KEY
+            - AWS_S3_CUSTOM_DOMAIN
+            - STATICFILE_STORAGE
+            - STATICFILES_LOCATION
+            - DEFAULT_FILE_STORAGE
+            - MEDIAFILES_LOCATION
+            - MEDIA_URL
+            - STATIC_URL
+        - STRIPE
+            - STRIPE_PUBLIC_KEY
+            - STRIPE_SECRET_KEY
+            - STRIPE_WH_SECRET
+            - STRIPE_CURRENCY
+            - DELIVERY_PERCENTAGE
+            - FREE_DELIVERY
+        - TEMPLATES_DIR
+        - Update DIRS in TEMPLATES with TEMPLATES_DIR
+        - Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+
+* Deployment:
+    - On the Heroku website you navigate to the deploy tab
+    - You look for the Manual Deploy and choose the "main" branch
+    - Click Deploy Branch
+
+* Live website : [Roxy's Cakes]()
+
+
+* ## _**Credits**_
+
+    * The background I found it on the []()
+
+    * I would like to give credit to my mentor, the tutors helped me a lot during this project. I am really aprreciate it.
+
+    * The logo was made by my wife, Roxana Mathe done it with Adobe Photoshop.
