@@ -11,11 +11,11 @@ I built this website for my wife's little business what she used to have. Roxy's
 * [User Stories](#user-stories)
 
 * [Features](#features)
-    * [Future ideas](#future-ideas)
     * [Bag](#bag)
     * [Payment system](#payment-system)
     * [Reviews](#reviews)
     * [Contact us](#contact-us)
+    * [Future ideas](#future-ideas)
 
 * [Design](#design)
     * [Colors](#colors)
@@ -46,13 +46,24 @@ I built this website for my wife's little business what she used to have. Roxy's
 
 ## _**Features**_
 
-* 
+ ### _Bag:_
+ 
+ * 
 
-* 
+ ### _Payment System:_
 
-* 
+ * 
+
+ ### _Reviews:_
+
+ * 
+
+ ### _Contact us:_
+ 
+ *  
  
  ### _Future ideas:_
+ 
  * 
 
 ## _**Design**_
