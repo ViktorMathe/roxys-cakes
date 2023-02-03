@@ -7,12 +7,12 @@
   <form action="{% url 'checkout' %}" method="POST" id="payment-form">
       {% csrf_token %}
       <fieldset class="rounded-1 px-3 mb-5">
-          <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+          <legend class="px-2 w-auto">Details</legend>
           {{ checkout_form.full_name | as_crispy_field }}
           {{ checkout_form.email_address | as_crispy_field }}
       </fieldset>
       <fieldset class="rounded px-3 mb-5">
-          <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+          <legend class="px-2 w-auto">Delivery</legend>
           {{ checkout_form.phone_number | as_crispy_field }}
           {{ checkout_form.address_1 | as_crispy_field }}
           {{ checkout_form.address_2 | as_crispy_field }}
@@ -28,7 +28,7 @@
           </div>
       </fieldset>
       <fieldset class="px-3">
-          <legend class="fieldset-label small text-black px-2 w-auto">Payment of {{ bag_total }}</legend>
+          <legend class="px-2 w-auto">Payment of {{ bag_total }}</legend>
           <!-- A Stripe card element will go here -->
           <div class="mb-3" id="card-element"></div>
 
@@ -55,6 +55,13 @@
           </p>
       </div>
   </form>
+  <div id="payment-loading">
+    <h1 class="logo spinner">
+        <span>
+            <i class="fa-solid fa-2x fa-spin fa-spinner"></i>
+        </span>
+    </h1>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
