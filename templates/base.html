@@ -46,6 +46,9 @@
             <a class="nav-link" href="#">Profile</a>
           </li>
           <li>
+              <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
+          </li>
+          <li>
             {% if request.user.is_authenticated %}
             <a class="nav-link" href="{% url 'add_cake' %}">Add Cake</a>
           </li>
@@ -54,9 +57,6 @@
           </li>
           <li>
             <a class="nav-link float-right" href="{% url 'bag' %}">Bag</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
           </li>
           <li>
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
