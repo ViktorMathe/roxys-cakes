@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'home',
     'contactus',
     'crispy_forms',
+    'profiles',
     'stripe'
 ]
 

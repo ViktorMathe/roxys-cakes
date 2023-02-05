@@ -4,6 +4,7 @@ from django.conf import settings
 from django_countries.fields import CountryField
 from cakes.models import Cake
 from django.contrib.auth.models import User
+from profiles.models import Profile
 
 import uuid
 
@@ -31,7 +32,10 @@ class Checkout(models.Model):
         max_digits=10, decimal_places=2, default=0, null=False)
     stripe_pid = models.CharField(
         max_length=254, blank=False, null=False, default='')
-
+    profile = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='orders')
+    
     def _generate_order_number(self):
         """
         Generate a random, unique order number using UUID

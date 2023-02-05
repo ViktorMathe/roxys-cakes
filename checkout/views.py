@@ -7,6 +7,8 @@ from .forms import CheckoutForm
 from cakes.models import Cake
 from bag.context import bag_contents
 from django.contrib.auth.models import User
+from profiles.models import Profile
+from profiles.forms import ProfileForm
 import json
 import stripe
 
@@ -82,6 +84,25 @@ def checkout_session(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        if request.user.is_authenticated:
+            try:
+                profile = Profile.objects.get(user=request.user)
+                checkout_form = CheckoutForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email_address': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'address_1': profile.default_address_1,
+                    'address_2': profile.default_address_2,
+                    'city': profile.default_city,
+                    'post_code': profile.default_post_code,
+                    'county': profile.default_county,
+                    'country': profile.default_country,
+                })
+            except Profile.DoesNotExist:
+                checkout_form = CheckoutForm()
+        else:
+            checkout_form = CheckoutForm()
+
     template = 'checkout.html'
     context = {
         'checkout_form': checkout_form,
@@ -98,6 +119,24 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Checkout, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        order.profile = profile
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_address_1': order.address_1,
+                'default_address_2': order.address_2,
+                'default_city': order.city,
+                'default_post_code': order.post_code,
+                'default_county': order.county,
+            }
+            profile_form = ProfileForm(profile_data, instance=profile)
+            if profile_form.is_valid():
+                profile_form.save()
 
     if 'bag' in request.session:
         del request.session['bag']

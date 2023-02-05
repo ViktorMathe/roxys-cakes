@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from .models import Checkout, CheckoutLine
 from cakes.models import Cake
+from profiles.models import Profile
 import json
 import stripe
 import time
@@ -33,6 +34,21 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = Profile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_address_1 = shipping_details.address.line1
+                profile.default_address_2 = shipping_details.address.line2
+                profile.default_city = shipping_details.address.city
+                profile.default_post_code = (
+                    shipping_details.address.postal_code)
+                profile.default_county = shipping_details.address.state
+                profile.default_country = shipping_details.address.country
+                profile.save()
 
         order_exists = False
         attempt = 1
