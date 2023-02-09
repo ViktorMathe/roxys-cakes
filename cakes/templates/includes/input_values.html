@@ -1,0 +1,42 @@
+<script type="text/javascript">
+function handleEnableDisable(cakeId) {
+    var currentValue = parseInt($(`#id_qty_${cakeId}`).val());
+    var minusDisabled = currentValue < 2;
+    var plusDisabled = currentValue > 98;
+    $(`#decrement-qty_${cakeId}`).prop('disabled', minusDisabled);
+    $(`#increment-qty_${cakeId}`).prop('disabled', plusDisabled);
+}
+
+// Ensure proper enabling/disabling of all inputs on page load
+var allQtyInputs = $('.qty_input');
+for(var i = 0; i < allQtyInputs.length; i++){
+    var cakeId = $(allQtyInputs[i]).data('cake_id');
+    handleEnableDisable(cakeId);
+}
+
+// Check enable/disable every time the input is changed
+$('.qty_input').change(function() {
+    var cakeId = $(this).data('cake_id');
+    handleEnableDisable(cakeId);
+});
+
+// Increment quantity
+$('.increment-qty').click(function(e) {
+   e.preventDefault();
+   var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+   var currentValue = parseInt($(closestInput).val());
+   $(closestInput).val(currentValue + 1);
+   var cakeId = $(this).data('cake_id');
+   handleEnableDisable(cakeId);
+});
+
+// Decrement quantity
+$('.decrement-qty').click(function(e) {
+   e.preventDefault();
+   var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+   var currentValue = parseInt($(closestInput).val());
+   $(closestInput).val(currentValue - 1);
+   var cakeId = $(this).data('cake_id');
+   handleEnableDisable(cakeId);
+});
+</script>

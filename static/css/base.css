@@ -1,11 +1,19 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: calc(100vh - 164px);
+}
+
 header {
     background-color: black;
 }
 
 #payment-loading {
     background: rgba(28, 28, 28, 0.85);
-	display: none;
-	position: fixed;
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -14,9 +22,18 @@ header {
 }
 
 .spinner {
-	display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+.icons {
+    background-color: black;
+}
+
+.icons i {
+    background-color: black;
+    color: gold;
 }

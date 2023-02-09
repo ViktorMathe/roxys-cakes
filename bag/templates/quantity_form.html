@@ -1,0 +1,29 @@
+<form class="form update-form" method="POST" action="{% url 'change_bag' cake.cake_id %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-sm rounded-0 icons decrement-qty_{{ cake.cake_id }}"
+                    data-cake_id="{{ cake.cake_id }}" id="decrement-qty_{{ cake.cake_id }}">
+                    <span>
+                        <i class="fas fa-arrow-down fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                value="{{ cake.quantity }}" min="1" max="99" data-cake_id="{{ cake.cake_id }}"
+                id="id_qty_{{ cake.cake_id }}">
+            <div class="input-group-append">
+                <button class="increment-qty btn btn-sm rounded-0 icons increment-qty_{{ cake.cake_id }}"
+                    data-cake_id="{{ cake.cake_id }}" id="increment-qty_{{ cake.cake_id }}">
+                    <span class="icons">
+                        <i class="fas fa-arrow-up fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<a class="update-button btn text-info"><small>Update</small></a>
+<a class="remove-button btn text-danger float-right"
+    id="delete_{{ cake.cake_id }}"><small>Remove</small></a>

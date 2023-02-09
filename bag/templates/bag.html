@@ -1,8 +1,158 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block content %}
-<div>
-    <p>{{bag_contents}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Shopping Bag</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if bag_contents %}
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+                        <p>A summary of your bag contents is below</p>
+                    </div>
+                </div>
+                <!--Mobile version-->
+                {% for cake in bag_contents %}
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% if cake.cake.image %}
+                        <img class="img-fluid rounded-5" src="{{ cake.cake.image.url }}" alt="{{ cake.cake.name }}">
+                        {% else %}
+                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}no_image.jpeg" alt="{{ cake.cake.name }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+                        <p class="my-0"><strong>{{ cake.cake.name }}</strong></p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <p class="my-0">Price each: £{{ cake.cake.price }}</p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        {% include 'quantity_form.html' %}
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <p class="my-0"><strong>Subtotal:</strong> £{{ cake.cake.price | subtotal:cake.quantity }}</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!--Desktop version-->
+            <div class="table-responsive rounded d-none d-md-block">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    {% for cake in bag_contents %}
+                    <tr>
+                        <td class="py-3 w-25">
+                            {% if cake.cake.image %}
+                            <img class="img-fluid rounded" src="{{ cake.cake.image.url }}" alt="{{ cake.cake.name }}">
+                            {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}no_image.jpeg"
+                                alt="{{ cake.cake.name }}">
+                            {% endif %}
+                        </td>
+                        <td class="p-3 w-25">
+                            <p class="my-0"><strong>{{ cake.cake.name }}</strong></p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">£{{ cake.cake.price }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <form class="form update-form" method="POST" action="{% url 'change_bag' cake.cake_id %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                                            value="{{ cake.quantity }}" min="1" max="99" data-cake_id="{{ cake.cake_id }}"
+                                            id="id_qty_{{ cake.cake_id }}">
+                                </div>
+                            </form>
+                            <a class="update-button btn text-info"><small>Update</small></a>
+                            <a class="remove-button btn text-danger float-right"
+                                id="delete_{{ cake.cake_id }}"><small>Remove</small></a>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">£{{ cake.cake.price | subtotal:cake.quantity }}</p>
+                            </p>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Bag Total: £{{ total |floatformat:2 }}</strong></h6>
+                            <h6>Delivery fee: £{{ delivery_fee|floatformat:2 }}</h6>
+                            <h4 class="mt-4"><strong>Order Total: £{{ order_total|floatformat:2 }}</strong></h4>
+                            {% if free_delivery_delta > 0 %}
+                            <p class="mb-1">
+                                You could get free delivery by spending just
+                                <strong>£{{ free_delivery_delta }}</strong>
+                                more!
+                            </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <p class="lead mb-5">Your bag is empty.</p>
+            <a href="{% url 'cakes' %}" class="btn rounded-1 btn-lg">
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+{% include 'includes/input_values.html' %}
+
+<script type="text/javascript">
+    $('.update-button').click(function (e) {
+        var form = $(this).prev('.update-form');
+        form[0].requestSubmit();
+    })
+
+    $('.remove-button').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var cakeId = $(this).attr('id').split('delete_')[1];
+        var url = `/bag/delete/${cakeId}`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
 {% endblock %}
