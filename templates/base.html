@@ -42,7 +42,7 @@
             <a class="nav-link" href="{% url 'cakes' %}">Cakes</a>
           </li>
           <li>
-              <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
+            <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
           </li>
           <li>
             <a class="nav-link float-right" href="{% url 'checkout' %}">Checkout</a>
@@ -50,10 +50,13 @@
           <li class="nav-item float-right">
             <a class="nav-link" href="{% url 'bag_view' %}">Bag</a>
           </li>
+          {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
           <li>
-            {% if request.user.is_authenticated %}
-              {% if request.user.is_superuser %}
-            <a class="nav-link" href="{% url 'add_cake' %}">Add Cake</a>
+            <a class="nav-item" href="{% url 'add_cake' %}">Add Cake</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{% url 'messages' %}">Messages</a>
           </li>
           {% endif %}
           <li class="nav-item">

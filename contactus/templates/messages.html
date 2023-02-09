@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for message in messages %}
+<div class="container">
+    <div class="col">
+        <div class="row">
+            <p>{{ message.email }}</p>
+        </div>
+        <div class="row">
+            <p>{{ message.phone_number }}</p>
+        </div>
+        <div class="row">
+            <p>{{ message.subject }}</p>
+        </div>
+        <div class="row">
+            <p>{{ message.message }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
