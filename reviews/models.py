@@ -17,7 +17,7 @@ class Reviews(models.Model):
     approved = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['-created_on']
 
     def __str__(self):
         return self.title
