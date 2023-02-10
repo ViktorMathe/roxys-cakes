@@ -3,20 +3,20 @@
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
-                <button class="decrement-qty btn btn-sm rounded-0 icons decrement-qty_{{ cake.cake_id }}"
+                <button class="decrement-qty btn btn-sm rounded-0 bg-dark text decrement-qty_{{ cake.cake_id }}"
                     data-cake_id="{{ cake.cake_id }}" id="decrement-qty_{{ cake.cake_id }}">
                     <span>
                         <i class="fas fa-arrow-down fa-sm"></i>
                     </span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+            <input class="form-control form-control-sm bg-dark text border-0 qty_input" type="number" name="quantity"
                 value="{{ cake.quantity }}" min="1" max="99" data-cake_id="{{ cake.cake_id }}"
                 id="id_qty_{{ cake.cake_id }}">
             <div class="input-group-append">
-                <button class="increment-qty btn btn-sm rounded-0 icons increment-qty_{{ cake.cake_id }}"
+                <button class="increment-qty btn btn-sm rounded-0 bg-dark text increment-qty_{{ cake.cake_id }}"
                     data-cake_id="{{ cake.cake_id }}" id="increment-qty_{{ cake.cake_id }}">
-                    <span class="icons">
+                    <span>
                         <i class="fas fa-arrow-up fa-sm"></i>
                     </span>
                 </button>

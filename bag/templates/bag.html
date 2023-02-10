@@ -3,7 +3,8 @@
 {% load bag_tools %}
 
 {% block content %}
-<div class="container">
+<div class="remove-bg"></div>
+<div class="container text">
     <div class="row">
         <div class="col">
             <h2>Shopping Bag</h2>
@@ -45,7 +46,7 @@
                 <div class="row">
                     <div class="col">
                         <hr>
-                        <a class="btn" href="{% url 'checkout' %}">Checkout</a>
+                        <a class="btn text" href="{% url 'checkout' %}">Checkout</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -54,7 +55,7 @@
             <!--Desktop version-->
             <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
-                    <thead class="text-black">
+                    <thead class="text">
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Product Name</th>

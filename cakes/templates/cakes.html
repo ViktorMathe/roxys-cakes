@@ -4,40 +4,45 @@
 
 {% block content %}
 {% for cake in cakes %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 border-0">{% if cake.image %}
-                            <a href="{% url 'cake_details' cake.id %}">
-                                <img class="card-img-top img-fluid" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'cake_details' cake.id %}">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ cake.name }}">
-                            </a>
+<div class="remove-bg"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 rounded-0">{% if cake.image %}
+                <a href="{% url 'cake_details' cake.id %}">
+                    <img class="card-img-top img-fluid rounded-0" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                </a>
+                {% else %}
+                <a href="{% url 'cake_details' cake.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ cake.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body bg-dark text pb-0">
+                    <p class="mb-0">{{ cake.name }}</p>
+                </div>
+                <div class="card-footer bg-dark text pt-0 border-0 rounded-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead mb-0 text-left font-weight-bold">£{{ cake.price }}</p>
+                            {% if cake.category %}
+                            <p class="small mt-1 mb-0">
+                                <a class="text" href="#">
+                                    <i class="fas fa-tag mr-1 text"></i>{{ cake.category.friendly_name }}
+                                </a>
+                            </p>
+                            <small class="ml-3">
+                                <a href="{% url 'edit_cake' cake.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_cake' cake.id %}">Delete</a>
+                            </small>
                             {% endif %}
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ cake.name }}</p>
-                            </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">£{{ cake.price }}</p>
-                                        {% if cake.category %}
-                                        <p class="small mt-1 mb-0">
-                                            <a class="text-muted" href="#">
-                                                <i class="fas fa-tag mr-1"></i>{{ cake.category.friendly_name }}
-                                            </a>
-                                        </p>
-                                        <small class="ml-3">
-                                            <a href="{% url 'edit_cake' cake.id %}">Edit</a> | 
-                                            <a class="text-danger" href="{% url 'delete_cake' cake.id %}">Delete</a>
-                                        </small>
-                                        {% endif %}
-                                        </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endfor %}
 
 {% endblock %}

@@ -12,15 +12,44 @@ header {
     background-color: black;
 }
 
+.remove-bg {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #212121;
+    z-index: -1;
+
+}
+
 .welcome {
-    background-color: #ac5353;
+    background-color: #A06B5B;
+}
+
+.card {
+  border-width: 4px;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      #A06B5B, 
+      #212121
+    ) 1 100%;
+}
+
+.text {
+    color: #A06B5B;
+    font-family: Italic;
 }
 
 
 #circle {
   height: 150px;
   width: 150px;
-  background-color: #ac5353;
+  background-color: #A06B5B;
   border-radius: 50%;
   display: flex;
   float: right;

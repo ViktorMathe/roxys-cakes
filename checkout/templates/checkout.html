@@ -3,8 +3,9 @@
 
 
 {% block content %}
+<div class="remove-bg"></div>
 <div class="col-12 col-lg-6">
-  <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+  <form class="text" action="{% url 'checkout' %}" method="POST" id="payment-form">
       {% csrf_token %}
       <fieldset class="rounded-1 px-3 mb-5">
           <legend class="px-2 w-auto">Details</legend>
@@ -30,7 +31,7 @@
       <fieldset class="px-3">
           <legend class="px-2 w-auto">Payment of {{ bag_total }}</legend>
           <!-- A Stripe card element will go here -->
-          <div class="mb-3" id="card-element"></div>
+          <div class="mb-3 text" id="card-element"></div>
 
           <!-- Used to display form errors -->
           <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
@@ -38,10 +39,10 @@
       </fieldset>
 
       <div class="submit-button text-right mt-5 mb-2">                    
-          <a href="{% url 'bag_view' %}" class="btn rounded-1">
+          <a href="{% url 'bag_view' %}" class="btn text rounded-1">
               <span>Adjust Bag</span>
           </a>
-          <button id="submit-button" class="btn btn-black rounded-0">
+          <button id="submit-button" class="btn text rounded-0">
               <span>Complete Order</span>
               <span class="icon">
                   <i class="fas fa-lock"></i>
