@@ -3,11 +3,45 @@ html {
 }
 
 body {
+    background: url('/media/Screenshot\ 2023-01-08\ at\ 14.35.20.png') fixed center center no-repeat;
+    background-size: cover;
     height: calc(100vh - 164px);
 }
 
 header {
     background-color: black;
+}
+
+.welcome {
+    background-color: #ac5353;
+}
+
+
+#circle {
+  height: 150px;
+  width: 150px;
+  background-color: #ac5353;
+  border-radius: 50%;
+  display: flex;
+  float: right;
+  position: relative;
+  bottom: 35px;
+  right: 5px;
+}
+
+.circle-message {
+    position: relative;
+    margin: 0;
+}
+
+.circle-message p {
+    font-size: 21px;
+  font-style: italic;
+  height: 100%;
+  line-height: 1.25;
+  padding: 0;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 
 #payment-loading {

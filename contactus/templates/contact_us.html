@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-
+<div class="container bg-white">
 <h2> Contact us!</h2>
 
 <form method="POST">
@@ -10,4 +10,5 @@
     {{ form | crispy }}
     <input class="btn" type="submit" value="Send">
 </form>
+</div>
 {% endblock %}
