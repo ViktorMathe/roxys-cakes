@@ -12,6 +12,11 @@ header {
     background-color: black;
 }
 
+.box {
+    background-color:rgba(33, 33, 33, 0.95);
+    width: 500px;
+}
+
 .remove-bg {
     height: 100%;
     width: 100%;
