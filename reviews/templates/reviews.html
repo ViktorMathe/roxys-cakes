@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="remove-bg"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% for review in reviews %}
+         <p class="text">  {{ review.title }}</p>
+         <a href="{% url 'edit_review' review.id %}" class="btn text">Edit Review</a>
+         <a href="{% url 'delete_review' review.id %}" class="btn text-danger">Delete Review</a>
+        </div>
+        <div class="col">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
