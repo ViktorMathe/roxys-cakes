@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/Screenshot\ 2023-01-08\ at\ 14.35.20.png') fixed center center no-repeat;
+    background: url('/media/macaron_background.png') fixed center center no-repeat;
     background-size: cover;
     height: calc(100vh - 164px);
 }
