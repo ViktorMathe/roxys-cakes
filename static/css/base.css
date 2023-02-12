@@ -12,9 +12,13 @@ header {
     background-color: black;
 }
 
+.navbar-toggler {
+    background-color: #A06B5B;
+}
+
 .box {
     background-color:rgba(33, 33, 33, 0.95);
-    width: 500px;
+    width: fit-content;
 }
 
 .remove-bg {
