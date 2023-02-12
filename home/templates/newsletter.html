@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<form class="box" method="POST">
+{% csrf_token %}
+    <div class="text"> {{ form }}
+        <button class="text border btn">Subscribe!</button>
+    </div>
+</form>
+
+{% endblock %}
