@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Subscribe, Newsletter
 from .forms import SubscribeForm, NewsLetterForm
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 
@@ -38,7 +38,8 @@ def newsletter(request):
             email = form.cleaned_data.get('subscribers').split(',')
             body = form.cleaned_data.get('content')
 
-            send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
+            mail = EmailMultiAlternatives(subject, body, settings.DEFAULT_FROM_EMAIL, bcc=email)
+            mail.content_subtype = 'html'
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
