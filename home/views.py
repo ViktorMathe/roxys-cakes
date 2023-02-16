@@ -35,11 +35,13 @@ def newsletter(request):
         form = NewsLetterForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data.get('subject')
-            email = form.cleaned_data.get('subscribers').split(',')
-            body = form.cleaned_data.get('content')
+            subscribers = form.cleaned_data.get('subscribers').split(',')
+            body_content = form.cleaned_data.get('content')
 
-            mail = EmailMultiAlternatives(subject, body, settings.DEFAULT_FROM_EMAIL, bcc=email)
+            mail = EmailMultiAlternatives(subject, body_content, settings.DEFAULT_FROM_EMAIL, cc=subscribers)
             mail.content_subtype = 'html'
+            mail.send()
+            
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
