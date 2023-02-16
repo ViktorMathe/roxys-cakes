@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'profiles',
     'reviews',
     'stripe',
-    'storages'
+    'storages',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [

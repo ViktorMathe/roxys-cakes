@@ -35,7 +35,7 @@ class Checkout(models.Model):
     profile = models.ForeignKey(
         Profile, on_delete=models.SET_NULL,
         null=True, blank=True, related_name='orders')
-    
+
     def _generate_order_number(self):
         """
         Generate a random, unique order number using UUID

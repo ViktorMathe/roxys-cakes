@@ -23,58 +23,92 @@
 </head>
 
 <body>
-<header>
-  <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="{{MEDIA_URL}}/nav-logo.png" alt="Logo" width="65" height="50">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'cakes' %}">Cakes</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{% url 'bag_view' %}">Bag</a>
-          </li>
-          {% if request.user.is_authenticated %}
+  <header>
+    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-none d-lg-flex" href="{% url 'home' %}">
+          <img src="{{MEDIA_URL}}/nav-logo.png" alt="Logo" width="65" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="list-inline">
+              <a class="{% if total %}font-weight-bold{% else %}text{% endif %} nav-link" href="{% url 'bag_view' %}">
+                <div class="text text-center">
+                  <div><i class="fas fa-bag-shopping fa-lg"></i></div>
+                  <p class="my-0">
+                    {% if total %}
+                    £{{ total|floatformat:2 }}
+                    {% else %}
+                    £0.00
+                    {% endif %}
+                  </p>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+                <i class="text fa-solid fa-house"></i>
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cakes' %}">
+                <i class=" text fa-solid fa-store"></i>
+                Cakes
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'contact_us' %}">
+                <i class="text fa-solid fa-envelope"></i>
+                Contact Us
+              </a>
+            </li>
+            {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-          <li>
-            <a class="nav-link" href="{% url 'add_cake' %}">Add Cake</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{% url 'messages' %}">Messages</a>
-          </li>
-          {% endif %}
-          <li>
-            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            {% else %}
-            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-          </li>
-          <a class="nav-link"> / </a>
-          <li>
-            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-          </li>
-          {% endif %}
+            <li>
+              <a class="nav-link" href="{% url 'add_cake' %}">
+                <i class="text fa-solid fa-plus"></i> Add Cake</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'messages' %}">
+                <i class="text fa-solid fa-inbox"></i> Messages</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'newsletter' %}">
+                <i class="text fa-solid fa-newspaper"></i> Newsletter</a>
+            </li>
+            {% endif %}
+            <li>
+              <a class="nav-link" href="{% url 'profile' %}">
+                <i class="text fa-solid fa-house-user"></i>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'account_logout' %}">
+                <i class="text fa-solid fa-right-from-bracket"></i>
+                Logout</a>
+              {% else %}
+              <a class="nav-link" href="{% url 'account_signup' %}">
+                <i class="text fa-solid fa-pen"></i>
+                Register</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'account_login' %}">
+                <i class="text fa-solid fa-right-to-bracket"></i>
+                Login</a>
+            </li>
+            {% endif %}
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
-{% block content %}
-{% endblock %}
+    </nav>
+  </header>
+
+  {% block content %}
+  {% endblock %}
 </body>
 <footer>
 

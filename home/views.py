@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Subscribe
-from .forms import SubscribeForm
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Subscribe, Newsletter
+from .forms import SubscribeForm, NewsLetterForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
@@ -26,4 +26,27 @@ def add_subscriber(request):
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
     template = 'newsletter.html'
     context = {'form': form}
+    return render(request, template, context)
+
+
+def newsletter(request):
+    form = NewsLetterForm()
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data.get('subject')
+            email = form.cleaned_data.get('subscribers').split(',')
+            body = form.cleaned_data.get('content')
+
+            send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
+        else:
+            for error in list(form.errors.values()):
+                messages.error(request, error)
+
+        return redirect('newsletter')
+    form.fields["subscribers"].initial = ','.join(
+        [active.email for active in Subscribe.objects.all()])
+    template = 'newsletter_superuser.html'
+    context = {"form": form}
+
     return render(request, template, context)
