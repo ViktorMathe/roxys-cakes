@@ -29,9 +29,9 @@
           </div>
       </fieldset>
       <fieldset class="px-3">
-          <legend class="px-2 w-auto">Payment of {{ bag_total }}</legend>
+          <legend class="px-2 w-auto text">Payment of £{{ total }}</legend>
           <!-- A Stripe card element will go here -->
-          <div class="mb-3 text" id="card-element"></div>
+          <div class="mb-3 text border p-2 rounded-1" id="card-element"></div>
 
           <!-- Used to display form errors -->
           <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
@@ -42,7 +42,7 @@
           <a href="{% url 'bag_view' %}" class="btn text border rounded-1">
               <span>Adjust Bag</span>
           </a>
-          <button id="submit-button" class="btn text border rounded-0">
+          <button id="submit-button" class="btn text border rounded-1">
               <span>Complete Order</span>
               <span class="icon">
                   <i class="fas fa-lock"></i>

@@ -142,6 +142,14 @@ CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
 
 WSGI_APPLICATION = 'roxys_cakes.wsgi.application'
 
+SUMMERNOTE_CONFIG = {
+    # You can put custom Summernote settings
+    'summernote': {
+        # Change editor size
+        'width': '100%',
+    },
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
