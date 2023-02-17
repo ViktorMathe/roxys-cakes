@@ -24,87 +24,99 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand d-none d-lg-flex" href="{% url 'home' %}">
-          <img src="{{MEDIA_URL}}/nav-logo.png" alt="Logo" width="65" height="50">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="list-inline">
-              <a class="{% if total %}font-weight-bold{% else %}text{% endif %} nav-link" href="{% url 'bag_view' %}">
-                <div class="text text-center">
-                  <div><i class="fas fa-bag-shopping fa-lg"></i></div>
-                  <p class="my-0">
-                    {% if total %}
-                    £{{ total|floatformat:2 }}
-                    {% else %}
-                    £0.00
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col p-2 navbar navbar-expand-lg bg-black" data-bs-theme="dark">
+          <a class="navbar-brand d-none d-lg-flex" href="{% url 'home' %}">
+            <img src="{{MEDIA_URL}}/nav-logo.png" alt="Logo" width="65" height="50">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav me-auto mb-2 mb-lg-0">
+              <div class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+                  <i class="text fa-solid fa-house"></i>
+                  Home
+                </a>
+              </div>
+              <div class="nav-item">
+                <a class="nav-link" href="{% url 'cakes' %}">
+                  <i class=" text fa-solid fa-store"></i>
+                  Cakes
+                </a>
+              </div>
+              <div>
+                <a class="nav-link" href="{% url 'contact_us' %}">
+                  <i class="text fa-solid fa-envelope"></i>
+                  Contact Us
+                </a>
+              </div>
+              <div>
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+
+                <div class="list-inline-item dropdown">
+                  <a class="nav-link" href="#" data-bs-toggle="dropdown" id="manager-menu" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="text fas fa-user fa-lg"></i>
+                    Manager Menu
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="manager-menu">
+                    <a class="dropdown-item" href="{% url 'add_cake' %}">
+                      <i class="text fa-solid fa-plus"></i> Add Cake</a>
+
+                    <a class="dropdown-item" href="{% url 'messages' %}">
+                      <i class="text fa-solid fa-inbox"></i> Messages</a>
+
+                    <a class="dropdown-item" href="{% url 'newsletter' %}">
+                      <i class="text fa-solid fa-newspaper"></i> Newsletter</a>
                     {% endif %}
-                  </p>
+                  </div>
                 </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
-                <i class="text fa-solid fa-house"></i>
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'cakes' %}">
-                <i class=" text fa-solid fa-store"></i>
-                Cakes
-              </a>
-            </li>
-            <li>
-              <a class="nav-link" href="{% url 'contact_us' %}">
-                <i class="text fa-solid fa-envelope"></i>
-                Contact Us
-              </a>
-            </li>
-            {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-            <li>
-              <a class="nav-link" href="{% url 'add_cake' %}">
-                <i class="text fa-solid fa-plus"></i> Add Cake</a>
-            </li>
-            <li>
-              <a class="nav-link" href="{% url 'messages' %}">
-                <i class="text fa-solid fa-inbox"></i> Messages</a>
-            </li>
-            <li>
-              <a class="nav-link" href="{% url 'newsletter' %}">
-                <i class="text fa-solid fa-newspaper"></i> Newsletter</a>
-            </li>
-            {% endif %}
-            <li>
-              <a class="nav-link" href="{% url 'profile' %}">
-                <i class="text fa-solid fa-house-user"></i>
-                Profile
-              </a>
-            </li>
-            <li>
-              <a class="nav-link" href="{% url 'account_logout' %}">
-                <i class="text fa-solid fa-right-from-bracket"></i>
-                Logout</a>
-              {% else %}
-              <a class="nav-link" href="{% url 'account_signup' %}">
-                <i class="text fa-solid fa-pen"></i>
-                Register</a>
-            </li>
-            <li>
-              <a class="nav-link" href="{% url 'account_login' %}">
-                <i class="text fa-solid fa-right-to-bracket"></i>
-                Login</a>
-            </li>
-            {% endif %}
+              </div>
+              <div>
+                <a class="nav-link" href="{% url 'profile' %}">
+                  <i class="text fa-solid fa-house-user"></i>
+                  Profile
+                </a>
+              </div>
+              <div>
+                <a class="nav-link" href="{% url 'account_logout' %}">
+                  <i class="text fa-solid fa-right-from-bracket"></i>
+                  Logout</a>
+                {% else %}
+                <a class="nav-link" href="{% url 'account_signup' %}">
+                  <i class="text fa-solid fa-pen"></i>
+                  Register</a>
+              </div>
+              <div>
+                <a class="nav-link" href="{% url 'account_login' %}">
+                  <i class="text fa-solid fa-right-to-bracket"></i>
+                  Login</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </nav>
+        <div class="col-3 col-lg-1 mt-3 nav-item shopping-bag">
+          <a class="{% if total %}font-weight-bold{% else %} {% endif %} nav-link" href="{% url 'bag_view' %}">
+            <div class="text-center">
+              <i class="text fas fa-bag-shopping fa-lg"></i>
+              <p class="silver-text">
+                {% if total %}
+                £{{ total|floatformat:2 }}
+                {% else %}
+                £0.00
+                {% endif %}
+              </p>
+            </div>
+          </a>
         </div>
       </div>
-    </nav>
   </header>
 
   {% block content %}

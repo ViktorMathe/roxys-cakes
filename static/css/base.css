@@ -16,6 +16,10 @@ header {
     background-color: #A06B5B;
 }
 
+.silver-text {
+    color: #a2a2a3;
+}
+
 .box {
     background-color:rgba(33, 33, 33, 0.95);
     width: fit-content;

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Contact_usForm
 from django.contrib.auth.decorators import login_required
 from .models import Contact_us
@@ -9,6 +9,7 @@ def contact_us(request):
         form = Contact_usForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('contact_us')
     else:
         form = Contact_usForm()
     context = {'form': form}

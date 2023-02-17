@@ -4,6 +4,7 @@ from .forms import SubscribeForm, NewsLetterForm
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -29,6 +30,7 @@ def add_subscriber(request):
     return render(request, template, context)
 
 
+@login_required
 def newsletter(request):
     form = NewsLetterForm()
     if request.method == 'POST':
@@ -38,10 +40,14 @@ def newsletter(request):
             subscribers = form.cleaned_data.get('subscribers').split(',')
             body_content = form.cleaned_data.get('content')
 
-            mail = EmailMultiAlternatives(subject, body_content, settings.DEFAULT_FROM_EMAIL, cc=subscribers)
+            mail = EmailMultiAlternatives(
+                subject,
+                body_content,
+                settings.DEFAULT_FROM_EMAIL,
+                cc=subscribers)
             mail.content_subtype = 'html'
             mail.send()
-            
+
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
