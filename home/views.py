@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Subscribe, Newsletter
 from .forms import SubscribeForm, NewsLetterForm
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
 def home(request):
@@ -13,6 +15,7 @@ def home(request):
 
 def add_subscriber(request):
     form = SubscribeForm()
+    sub_msg = messages.add_message(request, messages.INFO, 'You succesfully subscribed for our newsletter!')
     if request.method == 'POST':
         post_data = request.POST.copy()
         form = SubscribeForm(request.POST)
@@ -25,6 +28,7 @@ def add_subscriber(request):
             body = render_to_string(
                 'newsletter_emails/newsletter_confirmation_body.txt')
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
+            return HttpResponseRedirect(reverse('home'), sub_msg)
     template = 'newsletter.html'
     context = {'form': form}
     return render(request, template, context)
@@ -41,17 +45,16 @@ def newsletter(request):
             body_content = form.cleaned_data.get('content')
             subscribers = Subscribe.objects.filter(confirmed=True)
             for sub in subscribers:
-            	mail = EmailMultiAlternatives(
-                	subject,
-                	body_content + ('<br><a href="{}/unsubscribe/?email={}&conf_number={}">Unsubscribe</a>.').format(
-                            request.build_absolute_uri('/unsubscribe/'),
-                            sub.email,
-                            sub.conf_number),
-                	settings.DEFAULT_FROM_EMAIL,
-                	bcc=to)
-            	mail.content_subtype = 'html'
-            	mail.send()
-
+                mail = EmailMultiAlternatives(
+                     subject,
+                     body_content + (
+                        '<br><a href="{}/?email={}">Unsubscribe</a>').format(
+                            request.build_absolute_uri('unsubscribe/'),
+                            sub.email,),
+                     settings.DEFAULT_FROM_EMAIL,
+                     bcc=to)
+                mail.content_subtype = 'html'
+                mail.send()
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
@@ -65,8 +68,8 @@ def newsletter(request):
     return render(request, template, context)
 
 
-def remove_from_list(request):
+def unsubscribe(request):
     sub = Subscribe.objects.get(email=request.GET['email'])
-    if sub.conf_num == request.GET['conf_num']:
+    if sub.email == request.GET['email']:
         sub.delete()
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'email': sub.email})
