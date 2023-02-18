@@ -48,8 +48,8 @@ def newsletter(request):
                 mail = EmailMultiAlternatives(
                      subject,
                      body_content + (
-                        '<br><a href="https://roxys-cakes-vm.herokuapp.com/unsubscribe/?email={}">Unsubscribe</a>').format(
-                            request.build_absolute_uri(''),
+                        '<br><a href="{}/?email={}">Unsubscribe</a>').format(
+                            request.build_absolute_uri('unsubscribe'),
                             sub.email,),
                      settings.DEFAULT_FROM_EMAIL,
                      bcc=to)
