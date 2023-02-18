@@ -37,16 +37,20 @@ def newsletter(request):
         form = NewsLetterForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data.get('subject')
-            subscribers = form.cleaned_data.get('subscribers').split(',')
+            to = form.cleaned_data.get('subscribers').split(',')
             body_content = form.cleaned_data.get('content')
-
-            mail = EmailMultiAlternatives(
-                subject,
-                body_content,
-                settings.DEFAULT_FROM_EMAIL,
-                cc=subscribers)
-            mail.content_subtype = 'html'
-            mail.send()
+            subscribers = Subscribe.objects.filter(confirmed=True)
+            for sub in subscribers:
+            	mail = EmailMultiAlternatives(
+                	subject,
+                	body_content + ('<br><a href="{}/unsubscribe/?email={}&conf_number={}">Unsubscribe</a>.').format(
+                            request.build_absolute_uri('/unsubscribe/'),
+                            sub.email,
+                            sub.conf_number),
+                	settings.DEFAULT_FROM_EMAIL,
+                	bcc=to)
+            	mail.content_subtype = 'html'
+            	mail.send()
 
         else:
             for error in list(form.errors.values()):
@@ -59,3 +63,10 @@ def newsletter(request):
     context = {"form": form}
 
     return render(request, template, context)
+
+
+def remove_from_list(request):
+    sub = Subscribe.objects.get(email=request.GET['email'])
+    if sub.conf_num == request.GET['conf_num']:
+        sub.delete()
+        return render(request, 'index.html')
