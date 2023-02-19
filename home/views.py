@@ -37,13 +37,12 @@ def add_subscriber(request):
 @login_required
 def newsletter(request):
     form = NewsLetterForm()
+    subscribers = Subscribe.objects.filter(confirmed=True)
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data.get('subject')
-            to = form.cleaned_data.get('subscribers').split(',')
             body_content = form.cleaned_data.get('content')
-            subscribers = Subscribe.objects.filter(confirmed=True)
             for sub in subscribers:
                 mail = EmailMultiAlternatives(
                      subject,
@@ -52,7 +51,7 @@ def newsletter(request):
                             request.build_absolute_uri('unsubscribe'),
                             sub.email,),
                      settings.DEFAULT_FROM_EMAIL,
-                     bcc=to)
+                     [sub.email])
                 mail.content_subtype = 'html'
                 mail.send()
         else:
