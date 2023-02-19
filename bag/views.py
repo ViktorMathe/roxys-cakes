@@ -1,6 +1,7 @@
 from django.shortcuts import (
     render, redirect, reverse, HttpResponse, get_object_or_404)
 from cakes.models import Cake
+from django.contrib import messages
 
 
 def bag_view(request):
@@ -17,6 +18,7 @@ def add_bag_content(request, cake_id):
         bag[cake_id] += quantity
     else:
         bag[cake_id] = quantity
+        messages.success(request, f'Added {cake.name} to your bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)

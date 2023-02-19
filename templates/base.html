@@ -118,6 +118,23 @@
         </div>
       </div>
   </header>
+  {% if messages %}
+      <div class="message">
+          {% for message in messages %}
+              {% with message.level as level %}
+                  {% if level == 40 %}
+                      {% include 'toasts/error.html' %}
+                  {% elif level == 30 %}
+                      {% include 'toasts/warning.html' %}
+                  {% elif level == 25 %}
+                      {% include 'toasts/success.html' %}
+                  {% else %}
+                      {% include 'toasts/info.html' %}
+                  {% endif %}
+              {% endwith %}
+          {% endfor %}
+      </div>
+  {% endif %}
 
   {% block content %}
   {% endblock %}
