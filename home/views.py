@@ -51,7 +51,7 @@ def newsletter(request):
                             request.build_absolute_uri('unsubscribe'),
                             sub.email,),
                      settings.DEFAULT_FROM_EMAIL,
-                     [sub.email])
+                     bcc=[sub.email])
                 mail.content_subtype = 'html'
                 mail.send()
         else:
