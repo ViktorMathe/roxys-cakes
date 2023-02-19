@@ -71,4 +71,4 @@ def unsubscribe(request):
     sub = Subscribe.objects.get(email=request.GET['email'])
     if sub.email == request.GET['email']:
         sub.delete()
-        return render(request, 'index.html', {'email': sub.email})
+        return render(request, 'index.html')
