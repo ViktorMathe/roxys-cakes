@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .forms import ReviewForm
 from .models import Reviews
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def reviews(request):
@@ -17,6 +18,7 @@ def add_review(request):
     if form.is_valid():
         form.instance.name = request.user
         form.save()
+        messages.success(request, 'Your review has been added!')
     template = 'add_review.html'
     context = {'form': form}
     return render(request, template, context)
@@ -26,6 +28,7 @@ def add_review(request):
 def delete_review(request, review_id):
     review = get_object_or_404(Reviews, id=review_id)
     review.delete()
+    messages.warning(request, 'Your review has been deleted!')
     return redirect(reverse('reviews'))
 
 
@@ -36,6 +39,7 @@ def edit_review(request, review_id):
         form = ReviewForm(request.POST, request.FILES, instance=review)
         if form.is_valid():
             form.save()
+            messages.warning(request, 'Your review has been edited!')
             return redirect(reverse('reviews'))
     else:
         form = ReviewForm(instance=review)

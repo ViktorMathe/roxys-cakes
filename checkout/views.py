@@ -7,6 +7,7 @@ from .forms import CheckoutForm
 from cakes.models import Cake
 from bag.context import bag_contents
 from django.contrib.auth.models import User
+from django.contrib import messages
 from profiles.models import Profile
 from profiles.forms import ProfileForm
 import json

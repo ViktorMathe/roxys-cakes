@@ -15,7 +15,6 @@ def home(request):
 
 def add_subscriber(request):
     form = SubscribeForm()
-    sub_msg = messages.add_message(request, messages.INFO, 'You succesfully subscribed for our newsletter!')
     if request.method == 'POST':
         post_data = request.POST.copy()
         form = SubscribeForm(request.POST)
@@ -28,7 +27,9 @@ def add_subscriber(request):
             body = render_to_string(
                 'newsletter_emails/newsletter_confirmation_body.txt')
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
-            return HttpResponseRedirect(reverse('home'), sub_msg)
+            messages.success(request, f'You have succesfully subscribed for our newsletter on the following email: "{email}"!')
+
+            return HttpResponseRedirect(reverse('home'))
     template = 'newsletter.html'
     context = {'form': form}
     return render(request, template, context)
@@ -54,6 +55,7 @@ def newsletter(request):
                      bcc=[sub.email])
                 mail.content_subtype = 'html'
                 mail.send()
+                messages.success(request, 'The newsletter has been sent to all the subscribers!')
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
@@ -68,7 +70,12 @@ def newsletter(request):
 
 
 def unsubscribe(request):
-    sub = Subscribe.objects.get(email=request.GET['email'])
-    if sub.email == request.GET['email']:
-        sub.delete()
+    try:
+       sub = Subscribe.objects.get(email=request.GET['email'])
+       if sub.email == request.GET['email']:
+           sub.delete()
+           messages.warning(request, f'You unsubscribed from our newsletter with the following email: "{sub.email}". Sorry to see you go!')
+           return render(request, 'index.html')
+    except Exception as e:
+        messages.error(request, 'There is no subscriber with this email address!')
         return render(request, 'index.html')

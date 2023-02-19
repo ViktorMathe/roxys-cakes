@@ -6,6 +6,7 @@ from .forms import ProfileForm
 from checkout.models import Checkout
 
 
+
 @login_required
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
@@ -13,6 +14,7 @@ def profile(request):
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your profile information has been updated!')
     else:
         form = ProfileForm(instance=profile)
     orders = profile.orders.all()
