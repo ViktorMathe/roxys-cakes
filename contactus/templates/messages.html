@@ -3,23 +3,19 @@
 
 {% block content %}
 <div class="remove-bg"></div>
+
 {% for message in contact_messages %}
-<div class="container">
-    <div class="col text">
-        <div class="row">
-            <p>{{ message.email }}</p>
-        </div>
-        <div class="row">
-            <p>{{ message.phone_number }}</p>
-        </div>
-        <div class="row">
-            <p>{{ message.subject }}</p>
-        </div>
-        <div class="row">
-            <p>{{ message.message }}</p>
-        </div>
+<div class="card  m-4">
+    <div class="card-body silver-bg">
+      <h5 class="card-title">From: {{ message.email }}</h5>
+      {% if message.phone_number %}
+      <h6 class="card-subtitle mb-2 text-muted">Phone number: {{ message.phone_number }}</h6>
+      {% endif %}
+      <h6 class="card-subtitle">Subject: {{ message.subject }}</h6>
+      <p class="card-text">Message: {{ message.message }}</p>
+      <a href="{% url 'reply' message.id %}" class="card-link btn text bordered rounded-2">Reply</a>
     </div>
-</div>
+  </div>
 {% endfor %}
 
 {% endblock %}
