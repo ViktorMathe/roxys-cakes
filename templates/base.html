@@ -56,6 +56,13 @@
                 </a>
               </div>
               <div>
+                <a class="nav-link" href="{% url 'reviews' %}">
+                  <i class="text fa-solid fa-star"></i>
+                  Reviews
+                </a>
+              </div>
+
+              <div>
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
 
