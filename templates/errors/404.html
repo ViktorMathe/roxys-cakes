@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div id="404page"></div>
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="error-page"></div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    The page you are looking for isn't available
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'cakes' %}" 
-                            class="btn btn-lg bordered rounded-2 text-uppercase py-3">
-                                Return to the cakes!
-                        </a>
-                    </h4>
-                </div>
+</div>
+<div class="container">
+    <div class="row mt-md-5 pt-md-5">
+        <div class="col mt-md-4 pt-md-5 float-start my-auto">
+            <h1 class="box text border rounded-2 p-2 mt-md-5">
+                The page you are looking for is not exist!
+            </h1>
+            <div class=" float-end ">
+                <h4>
+                    <a href="{% url 'cakes' %}" class="btn box text btn-lg bordered rounded-2 text-uppercase ">
+                        Return to the cakes!
+                    </a>
+                </h4>
             </div>
         </div>
     </div>
+</div>
+
 {% endblock %}
