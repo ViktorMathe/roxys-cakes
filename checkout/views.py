@@ -25,6 +25,8 @@ def cache_checkout_session(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -63,6 +65,11 @@ def checkout_session(request):
                         )
                         order_line_item.save()
                 except Cake.DoesNotExist:
+                    messages.error(request, (
+                        "One of the cakes in your bag wasn't \
+                             found in our website."
+                        "Please contact us for assistance!")
+                    )
                     order.delete()
                     return redirect(reverse('bag'))
 
@@ -73,6 +80,8 @@ def checkout_session(request):
         bag = request.session.get('bag', {})
         checkout_form = CheckoutForm()
         if not bag:
+            messages.error(request, "There's nothing in your \
+                 bag at the moment! Keep shopping!")
             return redirect(reverse('cakes'))
 
         current_bag = bag_contents(request)
@@ -137,6 +146,10 @@ def checkout_success(request, order_number):
             profile_form = ProfileForm(profile_data, instance=profile)
             if profile_form.is_valid():
                 profile_form.save()
+
+    messages.success(request, f'The Order was Successful! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email_address}.')
 
     if 'bag' in request.session:
         del request.session['bag']
