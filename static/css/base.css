@@ -151,7 +151,7 @@ header {
 }
 
 /* home page on small and medium devices */
-@media (max-width: 992px) {
+@media (max-width: 665px) {
     #subscribe-banner h5 {
         font-size: 1rem;
     }
@@ -179,7 +179,7 @@ header {
         font-size: 8px;
     }
 
-    .footer p {
+    .facebook {
         font-size: 13px;
     }
 }   
