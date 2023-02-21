@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-from .models import Cake, Category
+from .models import Cake
 from django.contrib.auth.decorators import login_required
 from .forms import CakeForm
 from django.contrib import messages
@@ -9,7 +9,6 @@ from django.contrib import messages
 
 def all_cakes(request):
     cakes = Cake.objects.all()
-    categories = None
 
     if request.GET:
         cakes = cakes
@@ -22,7 +21,8 @@ def add_cake(request):
     form = CakeForm(request.POST, request.FILES)
     if form.is_valid():
         cake = form.save()
-        messages.success(request, f'{cake.name} has been added to the database.')
+        messages.success(
+            request, f'{cake.name} has been added to the database.')
         return redirect('cakes')
     else:
         form = CakeForm()

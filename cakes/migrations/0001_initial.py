@@ -15,9 +15,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=150)),
-                ('friendly_name', models.CharField(blank=True, max_length=150, null=True)),
+                ('friendly_name', models.CharField(
+                    blank=True, max_length=150, null=True)),
             ],
             options={
                 'verbose_name_plural': 'Categories',
@@ -26,15 +29,24 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Cake',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sku', models.CharField(blank=True, max_length=50, null=True)),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True, serialize=False, verbose_name='ID')),
+                ('sku', models.CharField(
+                    blank=True, max_length=50, null=True)),
                 ('name', models.CharField(max_length=150)),
                 ('description', models.TextField()),
-                ('flavours', models.CharField(blank=True, max_length=50, null=True)),
+                ('flavours', models.CharField(
+                    blank=True, max_length=50, null=True)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=6)),
-                ('image_url', models.URLField(blank=True, max_length=1024, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='cakes.category')),
+                ('image_url', models.URLField(
+                    blank=True, max_length=1024, null=True)),
+                ('image', models.ImageField(
+                    blank=True, null=True, upload_to='')),
+                ('category', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    to='cakes.category')),
             ],
         ),
     ]

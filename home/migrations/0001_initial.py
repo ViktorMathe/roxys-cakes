@@ -14,9 +14,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Subscribe',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('email', models.EmailField(max_length=254, unique=True)),
-                ('conf_number', models.CharField(editable=False, max_length=12)),
+                ('conf_number', models.CharField(
+                    editable=False, max_length=12)),
                 ('confirmed', models.BooleanField(default=False)),
             ],
         ),

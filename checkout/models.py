@@ -3,7 +3,6 @@ from django.db.models import Sum
 from django.conf import settings
 from django_countries.fields import CountryField
 from cakes.models import Cake
-from django.contrib.auth.models import User
 from profiles.models import Profile
 
 import uuid

@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-from .models import Subscribe, Newsletter
+from django.shortcuts import render, redirect, reverse
+from .models import Subscribe
 from .forms import SubscribeForm, NewsLetterForm
-from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -27,7 +27,9 @@ def add_subscriber(request):
             body = render_to_string(
                 'newsletter_emails/newsletter_confirmation_body.txt')
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
-            messages.success(request, f'You have succesfully subscribed for our newsletter on the following email: "{email}"!')
+            messages.success(
+                request, f'You have succesfully subscribed for our \
+                    newsletter on the following email: "{email}"!')
 
             return HttpResponseRedirect(reverse('home'))
     template = 'newsletter.html'
@@ -55,7 +57,9 @@ def newsletter(request):
                      bcc=[sub.email])
                 mail.content_subtype = 'html'
                 mail.send()
-                messages.success(request, 'The newsletter has been sent to all the subscribers!')
+                messages.success(
+                    request, 'The newsletter has been sent \
+                        to all the subscribers!')
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
@@ -71,11 +75,15 @@ def newsletter(request):
 
 def unsubscribe(request):
     try:
-       sub = Subscribe.objects.get(email=request.GET['email'])
-       if sub.email == request.GET['email']:
-           sub.delete()
-           messages.warning(request, f'You unsubscribed from our newsletter with the following email: "{sub.email}". Sorry to see you go!')
-           return render(request, 'index.html')
-    except Exception as e:
-        messages.error(request, 'There is no subscriber with this email address!')
+
+        sub = Subscribe.objects.get(email=request.GET['email'])
+        if sub.email == request.GET['email']:
+            sub.delete()
+            messages.warning(
+                request, f'You unsubscribed from our newsletter with the \
+                    following email: "{sub.email}". Sorry to see you go!')
+            return render(request, 'index.html')
+    except Exception:
+        messages.error(
+            request, 'There is no subscriber with this email address!')
         return render(request, 'index.html')

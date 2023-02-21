@@ -6,6 +6,7 @@ body {
     background: url('/media/macaron_background.png') fixed center center no-repeat;
     background-size: cover;
     height: calc(100vh - 164px);
+    font-family: 'Lato', sans-serif;
 }
 
 main {

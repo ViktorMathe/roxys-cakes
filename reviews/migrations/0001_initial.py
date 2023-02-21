@@ -17,15 +17,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Reviews',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100, unique=True)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('updated_on', models.DateTimeField(auto_now=True)),
                 ('content', models.TextField()),
-                ('image', models.ImageField(blank=True, upload_to='', verbose_name='images')),
-                ('status', models.IntegerField(choices=[(0, 'Draft'), (1, 'Published')], default=1)),
+                ('image', models.ImageField(
+                    blank=True, upload_to='', verbose_name='images')),
+                ('status', models.IntegerField(
+                    choices=[(0, 'Draft'), (1, 'Published')], default=1)),
                 ('approved', models.BooleanField(default=True)),
-                ('name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='review_post', to=settings.AUTH_USER_MODEL)),
+                ('name', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='review_post', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['-created_on'],
