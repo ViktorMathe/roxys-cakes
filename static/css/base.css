@@ -18,7 +18,7 @@ header {
 }
 
 .navbar-toggler {
-    background-color: #A06B5B;
+    background-color: #ce9988;
 }
 
 .silver-text {
@@ -46,7 +46,7 @@ header {
 }
 
 .welcome {
-    background-color: #A06B5B;
+    background-color: #ce9988;
 }
 
 .card {
@@ -56,12 +56,12 @@ header {
     border-bottom: none;
     border-image:
         linear-gradient(to bottom,
-            #A06B5B,
+            #ce9988,
             #212121) 1 100%;
 }
 
 .text {
-    color: #A06B5B;
+    color: #ce9988;
     font-family: Italic;
 }
 
@@ -69,7 +69,7 @@ header {
 #circle {
     height: 150px;
     width: 150px;
-    background-color: #A06B5B;
+    background-color: #ce9988;
     border-radius: 50%;
     display: flex;
     float: right;
@@ -110,7 +110,7 @@ header {
     justify-content: center;
     margin: 0;
     height: 100%;
-    color: #A06B5B;
+    color: #ce9988;
 }
 
 .icons {
@@ -135,12 +135,12 @@ header {
 }
 
 .footer p {
-  bottom: 0;
-  height: fit-content;
-  width: fit-content;
+    bottom: 0;
+    height: fit-content;
+    width: fit-content;
 }
 
-.footer col{
+.footer col {
     height: 100%;
 }
 
@@ -182,4 +182,4 @@ header {
     .facebook {
         font-size: 13px;
     }
-}   
+}
