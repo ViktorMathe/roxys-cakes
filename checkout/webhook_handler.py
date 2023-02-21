@@ -120,6 +120,7 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [email_to]
             )
+        print(email_to)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created \
                  order in webhook',

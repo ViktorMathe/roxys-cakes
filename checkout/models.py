@@ -49,8 +49,6 @@ class Checkout(models.Model):
                 self.bag_total * settings.DELIVERY_PERCENTAGE / 100)
         else:
             self.delivery = 0
-        print(self.delivery)
-        print(settings.FREE_DELIVERY)
         self.order_total = self.bag_total + self.delivery
         self.save()
 

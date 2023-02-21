@@ -5,9 +5,9 @@ This is a confirmation email of your order at Roxy's Cakes. Your order informati
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
-Total: £{{ order.bag_total }}
-Delivery: £{{ order.delivery }}
-Order Total: £{{ order.order_total }}
+Total: £{{ order.bag_total|floatformat:2 }}
+Delivery: £{{ order.delivery|floatformat:2 }}
+Order Total: £{{ order.order_total|floatformat:2 }}
 
 Your order will be shipped to {{ order.address_1 }} in {{ order.city }}, {{ order.country }}.
 
