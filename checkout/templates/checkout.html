@@ -29,7 +29,7 @@
           </div>
       </fieldset>
       <fieldset class="px-3">
-          <legend class="px-2 w-auto text">Payment of <span class="text-white">£{{ total }}</span></legend>
+          <legend class="px-2 w-auto text">Payment of <span class="text-white">£{{ order_total|floatformat:2}}</span></legend>
           <!-- A Stripe card element will go here -->
           <div class="mb-3 text border p-2 rounded-1" id="card-element"></div>
 
