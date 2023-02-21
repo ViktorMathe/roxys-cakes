@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, \
     HttpResponse
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from .models import Checkout, CheckoutLine
@@ -150,6 +153,21 @@ def checkout_success(request, order_number):
     messages.success(request, f'The Order was Successful! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email_address}.')
+    email_to = order.email_address
+    subject = render_to_string(
+            'confirmation_emails/email_subject.txt',
+            {'order': order})
+    body = render_to_string(
+            'confirmation_emails/email_body.txt',
+            {'order': order,
+             'contact_email_address': settings.DEFAULT_FROM_EMAIL})
+    send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [email_to]
+            )
+
 
     if 'bag' in request.session:
         del request.session['bag']

@@ -1,6 +1,4 @@
 from django.http import HttpResponse
-from django.template.loader import render_to_string
-from django.core.mail import send_mail
 from django.conf import settings
 from .models import Checkout, CheckoutLine
 from cakes.models import Cake
@@ -19,22 +17,6 @@ class StripeWH_Handler:
             content=f'Unhandled Webhook received: {event["type"]}',
             status=200
         )
-
-    def _send_confirmation_email(self, order):
-        email_to = order.email_address
-        subject = render_to_string(
-            'confirmation_emails/email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'confirmation_emails/email_body.txt',
-            {'order': order,
-             'contact_email_address': settings.DEFAULT_FROM_EMAIL})
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [email_to]
-            )
 
     def handle_payment_intent_succeeded(self, event):
         intent = event.data.object
@@ -122,7 +104,6 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created \
                  order in webhook',
