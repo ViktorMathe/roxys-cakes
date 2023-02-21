@@ -8,6 +8,11 @@ body {
     height: calc(100vh - 164px);
 }
 
+main {
+    position: relative;
+    min-height: calc(100vh - 164px);
+}
+
 header {
     background-color: black;
 }
@@ -117,6 +122,34 @@ header {
     color: gold;
 }
 
+.footer {
+    width: 100%;
+    height: 95px;
+}
+
+.social {
+    margin: 3%;
+    padding: 8px;
+    font-size: x-large;
+    align-items: center;
+}
+
+.footer p {
+  bottom: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.footer col{
+    height: 100%;
+}
+
+.social:hover {
+    color: #D7DDE0;
+    background-color: rgba(233, 239, 242, 0.2);
+    border-radius: 35px;
+}
+
 /* home page on small and medium devices */
 @media (max-width: 992px) {
     #subscribe-banner h5 {
@@ -141,4 +174,12 @@ header {
     .circle-message p {
         font-size: 12px;
     }
-}
+
+    .footer small {
+        font-size: 8px;
+    }
+
+    .footer p {
+        font-size: 13px;
+    }
+}   
