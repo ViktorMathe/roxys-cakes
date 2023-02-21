@@ -19,6 +19,9 @@ def add_review(request):
         form.instance.name = request.user
         form.save()
         messages.success(request, 'Your review has been added!')
+        return redirect(reverse('reviews'))
+    else:
+        form = ReviewForm()
     template = 'add_review.html'
     context = {'form': form}
     return render(request, template, context)

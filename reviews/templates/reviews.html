@@ -3,42 +3,50 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-    <div class="container-fluid text-center text">
-        <h1>Reviews</h1>
+<div class="container-fluid text-center text">
+    <h1>Reviews</h1>
+</div>
+<div class="row">
+    <div class="col">
+        <p class="text">If you wish to add a review just click <a class="btn text-info border rounder-1"
+                href="{% url 'add_review'%}">Add Review</a></p>
     </div>
-    <div class="row">
-        <div class="col">
-            <p class="text">If you wish to add a review just click <a class="btn text-info border rounder-1" href="{% url 'add_review'%}">Add Review</a></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            {% for review in reviews %}
-            <div class="card mb-3 silver-bg" style="max-width: 540px;">
-                <div class="row g-0">
-                    {% if review.image %}
-                    <div class="col-md-4">
-                    <img src="{{ review.image.url }}" class="img-fluid rounded-start" alt="{{ review_instance.image.name}}">
+</div>
+<div class="row">
+    <div class="col">
+        {% for review in reviews %}
+        <div class="card mb-3 silver-bg" style="max-width: 540px;">
+            <div class="row g-0">
+                {% if review.image %}
+                <div class="col-md-4">
+                    <img src="{{ review.image.url }}" class="img-fluid rounded-start"
+                        alt="{{ review_instance.image.name}}">
                 </div>
-                    {% endif %}
-                  <div class="col-md-8">
+                {% endif %}
+                <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">{{ review.title }}</h5>
-                      <p class="card-text">{{ review.content }}</p>
-                      <p class="card-text"><small class="text-muted">{{ review.created_on }}</small></p>
-                      <p class="card-text"><small class="text-muted">{{ review.updated_on }}</small></p>
-                      <p class="card-text"><small class="text-muted">{{ review.name }}</small></p>
+                        <h5 class="card-title">{{ review.title }}</h5>
+                        <p class="card-text">{{ review.content }}</p>
+                        <p class="card-text"><small class="text-muted float-end">Created on:
+                                {{ review.created_on }}</small></p>
+                        <p class="card-text"><small class="text-muted float-end">Updated on:
+                                {{ review.updated_on }}</small></p>
+                        <br>
+                        <br>
+                        <p class="card-text"><small class="text-muted float-end">By: {{ review.name }}</small></p>
                     </div>
-                  </div>
                 </div>
             </div>
+        </div>
+        {% if review.name == request.user or request.user.is_superuser %}
         <div class="col">
             <a href="{% url 'edit_review' review.id %}" class="btn text">Edit Review</a>
-            <a href="{% url 'delete_review' review.id %}" class="btn text-danger">Delete Review</a>   
+            <a href="{% url 'delete_review' review.id %}" class="btn text-danger">Delete Review</a>
         </div>
+        {% endif %}
         {% endfor %}
-        </div>
     </div>
+</div>
 </div>
 
 {% endblock %}
