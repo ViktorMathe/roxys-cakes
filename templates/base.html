@@ -61,30 +61,27 @@
                   Reviews
                 </a>
               </div>
+              {% if request.user.is_superuser %}
 
-              <div>
-                {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
+              <div class="list-inline-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown" id="manager-menu" aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="text fas fa-user fa-lg"></i>
+                  Manager Menu
+                </a>
+                <div class="dropdown-menu" aria-labelledby="manager-menu">
+                  <a class="dropdown-item" href="{% url 'add_cake' %}">
+                    <i class="text fa-solid fa-plus"></i> Add Cake</a>
 
-                <div class="list-inline-item dropdown">
-                  <a class="nav-link" href="#" data-bs-toggle="dropdown" id="manager-menu" aria-haspopup="true"
-                    aria-expanded="false">
-                    <i class="text fas fa-user fa-lg"></i>
-                    Manager Menu
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="manager-menu">
-                    <a class="dropdown-item" href="{% url 'add_cake' %}">
-                      <i class="text fa-solid fa-plus"></i> Add Cake</a>
+                  <a class="dropdown-item" href="{% url 'messages' %}">
+                    <i class="text fa-solid fa-inbox"></i> Messages</a>
 
-                    <a class="dropdown-item" href="{% url 'messages' %}">
-                      <i class="text fa-solid fa-inbox"></i> Messages</a>
-
-                    <a class="dropdown-item" href="{% url 'newsletter' %}">
-                      <i class="text fa-solid fa-newspaper"></i> Newsletter</a>
-                    {% endif %}
-                  </div>
+                  <a class="dropdown-item" href="{% url 'newsletter' %}">
+                    <i class="text fa-solid fa-newspaper"></i> Newsletter</a>
                 </div>
               </div>
+              {% endif %}
+              {% if request.user.is_authenticated %}
               <div>
                 <a class="nav-link" href="{% url 'profile' %}">
                   <i class="text fa-solid fa-house-user"></i>
@@ -99,8 +96,6 @@
                 <a class="nav-link" href="{% url 'account_signup' %}">
                   <i class="text fa-solid fa-pen"></i>
                   Register</a>
-              </div>
-              <div>
                 <a class="nav-link" href="{% url 'account_login' %}">
                   <i class="text fa-solid fa-right-to-bracket"></i>
                   Login</a>
@@ -109,38 +104,39 @@
             </div>
           </div>
         </nav>
-        <div class="col-3 col-lg-1 mt-3 nav-item shopping-bag">
-          <a class="{% if total %}font-weight-bold{% else %} {% endif %} nav-link" href="{% url 'bag_view' %}">
-            <div class="text-center">
-              <i class="text fas fa-bag-shopping fa-lg"></i>
-              <p class="silver-text">
-                {% if total %}
-                £{{ total|floatformat:2 }}
-                {% else %}
-                £0.00
-                {% endif %}
-              </p>
-            </div>
-          </a>
-        </div>
       </div>
+      <div class="position-absolute end-0 top-0 mt-2 p-2 nav-item shopping-bag">
+        <a class="{% if total %}font-weight-bold{% else %} {% endif %} nav-link" href="{% url 'bag_view' %}">
+          <div class="text-center">
+            <i class="text fas fa-bag-shopping fa-lg"></i>
+            <p class="silver-text">
+              {% if total %}
+              £{{ total|floatformat:2 }}
+              {% else %}
+              £0.00
+              {% endif %}
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
   </header>
   {% if messages %}
-      <div class="message">
-          {% for message in messages %}
-              {% with message.level as level %}
-                  {% if level == 40 %}
-                      {% include 'toasts/error.html' %}
-                  {% elif level == 30 %}
-                      {% include 'toasts/warning.html' %}
-                  {% elif level == 25 %}
-                      {% include 'toasts/success.html' %}
-                  {% else %}
-                      {% include 'toasts/info.html' %}
-                  {% endif %}
-              {% endwith %}
-          {% endfor %}
-      </div>
+  <div class="message">
+    {% for message in messages %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'toasts/error.html' %}
+    {% elif level == 30 %}
+    {% include 'toasts/warning.html' %}
+    {% elif level == 25 %}
+    {% include 'toasts/success.html' %}
+    {% else %}
+    {% include 'toasts/info.html' %}
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
+  </div>
   {% endif %}
 
   {% block content %}

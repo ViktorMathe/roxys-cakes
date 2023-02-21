@@ -8,13 +8,13 @@
     </div>
     <div class="row">
         <div class="col">
-            <p class="text">If you wish to add a review just click <a class="btn text-info" href="{% url 'add_review'%}">here</a></p>
+            <p class="text">If you wish to add a review just click <a class="btn text-info border rounder-1" href="{% url 'add_review'%}">Add Review</a></p>
         </div>
     </div>
     <div class="row">
         <div class="col">
             {% for review in reviews %}
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 silver-bg" style="max-width: 540px;">
                 <div class="row g-0">
                     {% if review.image %}
                     <div class="col-md-4">
