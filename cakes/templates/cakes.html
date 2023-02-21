@@ -40,6 +40,16 @@
                                 {% endif %}
                                 {% endif %}
                                 {% endif %}
+                                <form class="text" method="POST" action="{% url 'add_bag_content' cake.id %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="quantity"
+                                    value="1" data-cake_id="{{ cake.cake_id }}">
+                                    <a href="{% url 'cake_details' cake.id %}" class="btn text border rounded-3 mt-5">
+                                        <span class="text-uppercase text">Details</span>
+                                    </a>                            
+                                    <input type="submit" class="btn rounded-3 border text text-uppercase mt-5 float-end" value="Add to Bag">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">                            
+                                </form>                
                             </div>
                         </div>
                     </div>

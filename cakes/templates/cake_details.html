@@ -3,14 +3,14 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-<div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 text">
+<div class="col-sm-6 p-2 col-md-6 col-lg-4 col-xl-3 text">
     <img class="card-img-top img-fluid rounded-5" src="{{ cake.image.url }}" alt="{{ cake.name }}">
     <p>{{ cake.name }}</p>
     <p>{{ cake.description }}</p>
-    <p>£{{ cake.price }}</p>
+    <p class="text-white">£{{ cake.price }}</p>
 </div>
 
-<form class="text" method="POST" action="{% url 'add_bag_content' cake.id %}">
+<form class="text p-2" method="POST" action="{% url 'add_bag_content' cake.id %}">
     {% csrf_token %}
     <div class="form-group w-25">
         <div class="input-group">
@@ -22,7 +22,7 @@
                     </span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input bg-dark text border-0" type="number" name="quantity"
+            <input class="form-control form-control-sm qty_input bg-dark text-white border-0" type="number" name="quantity"
                 value="1" min="1" max="99" data-cake_id="{{ cake.cake_id }}"
                 id="id_qty_{{ cake.cake_id }}">
             <div class="input-group-append">
