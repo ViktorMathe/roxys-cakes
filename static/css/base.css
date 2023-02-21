@@ -21,7 +21,7 @@ header {
 }
 
 .box {
-    background-color:rgba(33, 33, 33, 0.95);
+    background-color: rgba(33, 33, 33, 0.95);
     width: fit-content;
 }
 
@@ -45,16 +45,14 @@ header {
 }
 
 .card {
-  border-width: 4px;
-  border-style: solid;
-  border-top: none;
-  border-bottom: none;
-  border-image: 
-    linear-gradient(
-      to bottom, 
-      #A06B5B, 
-      #212121
-    ) 1 100%;
+    border-width: 4px;
+    border-style: solid;
+    border-top: none;
+    border-bottom: none;
+    border-image:
+        linear-gradient(to bottom,
+            #A06B5B,
+            #212121) 1 100%;
 }
 
 .text {
@@ -64,15 +62,15 @@ header {
 
 
 #circle {
-  height: 150px;
-  width: 150px;
-  background-color: #A06B5B;
-  border-radius: 50%;
-  display: flex;
-  float: right;
-  position: relative;
-  bottom: 35px;
-  right: 5px;
+    height: 150px;
+    width: 150px;
+    background-color: #A06B5B;
+    border-radius: 50%;
+    display: flex;
+    float: right;
+    position: relative;
+    bottom: 70px;
+    right: 30px;
 }
 
 .circle-message {
@@ -82,12 +80,12 @@ header {
 
 .circle-message p {
     font-size: 21px;
-  font-style: italic;
-  height: 100%;
-  line-height: 1.25;
-  padding: 0;
-  text-align: center;
-  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
+    font-style: italic;
+    height: 100%;
+    line-height: 1.25;
+    padding: 0;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 
 #payment-loading {
@@ -117,4 +115,30 @@ header {
 .icons i {
     background-color: black;
     color: gold;
+}
+
+/* home page on small and medium devices */
+@media (max-width: 992px) {
+    #subscribe-banner h5 {
+        font-size: 1rem;
+    }
+
+    .welcome {
+        font-size: 20px;
+    }
+
+    .enter-shop a {
+        font-size: 13px;
+    }
+
+    #circle {
+        height: 100px;
+        width: 100px;
+        bottom: 60px;
+        right: 15px;
+    }
+
+    .circle-message p {
+        font-size: 12px;
+    }
 }
