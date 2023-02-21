@@ -6,7 +6,7 @@ var elements = stripe.elements();
 const style = {
     theme: 'stripe',
     base: {
-        colorPrimary: '#A06B5B',
+        color: '#A06B5B',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {

@@ -33,21 +33,21 @@
                         <p class="my-0"><strong>{{ cake.cake.name }}</strong></p>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p class="my-0">Price each: £{{ cake.cake.price }}</p>
+                        <p class="my-0">Price each: <span class="text-white">£{{ cake.cake.price }}</span></p>
                     </div>
                     <div class="col-12 col-sm-6">
                         {% include 'quantity_form.html' %}
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p class="my-0"><strong>Subtotal:</strong> £{{ cake.cake.price | subtotal:cake.quantity }}</p>
+                        <p class="my-0"><strong>Subtotal:</strong> <span class="text-white">£{{ cake.cake.price | subtotal:cake.quantity }}</span></p>
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h6><strong>Bag Total: £{{ total |floatformat:2 }}</strong></h6>
-                            <h6>Delivery fee: £{{ delivery_fee|floatformat:2 }}</h6>
-                            <h4 class="mt-4"><strong>Order Total: £{{ order_total|floatformat:2 }}</strong></h4>
+                        <h6><strong>Bag Total: <span class="text-white">£{{ total |floatformat:2 }}</span></strong></h6>
+                            <h6>Delivery fee: <span class="text-white">£{{ delivery_fee|floatformat:2 }}</span></h6>
+                            <h4 class="mt-4"><strong>Order Total: <span class="text-white">£{{ order_total|floatformat:2 }}</span></strong></h4>
                             {% if free_delivery_delta > 0 %}
                             <p class="mb-1 text-warning">
                                 You could get free delivery by spending just
@@ -88,7 +88,7 @@
                             <p class="my-0 text"><strong>{{ cake.cake.name }}</strong></p>
                         </td>
                         <td class="py-3">
-                            <p class="my-0 text">£{{ cake.cake.price }}</p>
+                            <p class="my-0 text-white">£{{ cake.cake.price }}</p>
                         </td>
                         <td class="py-3 w-25">
                             <form class="form update-form" method="POST" action="{% url 'change_bag' cake.cake_id %}">
@@ -104,7 +104,7 @@
                                 id="delete_{{ cake.cake_id }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
-                            <p class="my-0 text">£{{ cake.cake.price | subtotal:cake.quantity }}</p>
+                            <p class="my-0 text-white">£{{ cake.cake.price | subtotal:cake.quantity }}</p>
                             </p>
 
                         </td>
@@ -112,9 +112,9 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text text-right">
-                            <h6><strong>Bag Total: £{{ total |floatformat:2 }}</strong></h6>
-                            <h6>Delivery fee: £{{ delivery_fee|floatformat:2 }}</h6>
-                            <h4 class="mt-4"><strong>Order Total: £{{ order_total|floatformat:2 }}</strong></h4>
+                            <h6><strong>Bag Total: <span class="text-white">£{{ total |floatformat:2 }}</span></strong></h6>
+                            <h6>Delivery fee: <span class="text-white">£{{ delivery_fee|floatformat:2 }}</span></h6>
+                            <h4 class="mt-4"><strong>Order Total: <span class="text-white">£{{ order_total|floatformat:2 }}</span></strong></h4>
                             {% if free_delivery_delta > 0 %}
                             <p class="mb-1 text-warning">
                                 You could get free delivery by spending just

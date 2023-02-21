@@ -21,7 +21,7 @@
           {{ checkout_form.county | as_crispy_field }}
           {{ checkout_form.post_code | as_crispy_field }}
           {{ checkout_form.country | as_crispy_field }}
-          <div class="form-check form-check-inline float-right mr-0">
+          <div class="mr-0">
                   <label class="form-check-label" for="id-save-info">
                       <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                       <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
@@ -29,7 +29,7 @@
           </div>
       </fieldset>
       <fieldset class="px-3">
-          <legend class="px-2 w-auto text">Payment of £{{ total }}</legend>
+          <legend class="px-2 w-auto text">Payment of <span class="text-white">£{{ total }}</span></legend>
           <!-- A Stripe card element will go here -->
           <div class="mb-3 text border p-2 rounded-1" id="card-element"></div>
 
@@ -52,7 +52,7 @@
               <span class="icon">
                   <i class="fas fa-exclamation-circle"></i>
               </span>
-              <span>Your card will be charged <strong>£{{ order_total|floatformat:2 }}</strong></span>
+              <span>Your card will be charged <strong class="text-white">£{{ order_total|floatformat:2 }}</strong></span>
           </p>
       </div>
   </form>
