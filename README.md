@@ -1,6 +1,6 @@
 # **Roxy's Cakes** 
 
-I built this website for my wife's little business what she used to have. Roxy's Cakes is a very easy to use website with bag, payment, reviews and contact features. You can browse from different categories of cakes and add them to the bag where you can process forward to the checkout page.
+I built this website for my wife's little business what she used to have. Roxy's Cakes is a very easy to use website with bag, payment, reviews, contact us and newsletter features. You can browse from different cakes and add them to the bag where you can process forward to the checkout page.
 
 [You can try it here on the live website!](https://roxys-cakes-vm.herokuapp.com/)
 
@@ -15,13 +15,13 @@ I built this website for my wife's little business what she used to have. Roxy's
     * [Payment system](#payment-system)
     * [Reviews](#reviews)
     * [Contact us](#contact-us)
+    * [Newsletter](#newsletter)
     * [Future ideas](#future-ideas)
 
 * [Design](#design)
-    * [Colors](#colors)
+    * [Colours](#colours)
     * [Font](#font)
     * [Images](#images)
-    * [Audio](#audio)
 
 * [Testing](#testing)
     * [W3C Validator](#w3c-validator)
@@ -48,43 +48,61 @@ I built this website for my wife's little business what she used to have. Roxy's
 
  ### _Bag:_
  
- * 
+ * You can access to the bag by click on the icon which will contains all the items what you have put it in there. You can change the quantity with the provided form and it will update the price the subtotal and calculate it how much more do you need to spend for get a free delivery. From the bag you can proceed to the checkout page.
+
+ ![Image about the bag](./media/readme/images/bag.png)
 
  ### _Payment System:_
 
- * 
+ * On the checkout page you have to provide all the details what they ask for, if you are logged in and already used the shop once or created a profile the website fill out the form with some information so you do not have to fill out the same things again. You can see how much is the total what you have to pay. **PLEASE DO NOT PROVIDE REAL BANK CARD DETAILS!!**  If you wish to try out the payment system used the Stripe own testing card:
+    * Card Number : 4242424242424242	
+    * CVV: Any 3 digits	
+    * Expiry Date: Any future date
+
+     When the payment is complete the user get an email with the order details to the provided email address.
+
+     ![Image about the payment page](./media/readme/images/checkout.png)
+     ![Image about the profile page](./media/readme/images/profile.png)
 
  ### _Reviews:_
 
- * 
+ * Any user can leave a review about the shop and if they wish, image can be uploaded as well. The reviews can be edited or deleted by the person who wrote them or can be done by a superuser.
 
  ### _Contact us:_
  
- *  
+ *  The user can fill out the form to contact the webshop. They have to provide an email address and if they would like can write the phone number as well. The form can be answered by a superuser and send an email to the receipent.
+
+ ### _Newsletter:_
+
+ * Anybody can subscribe for a newsletter on the home page with their email address then they got a confirmation email. The superuser can write a newsletter for all of the subscribers and send out real emails with a unique link which is provide the option to unsubscribe.
  
  ### _Future ideas:_
  
- * 
+ * I would like to implement login via social platforms. 
+ * Make searching option for different categories.
 
 ## _**Design**_
 
-  * ### _Colors:_
-    * 
+  * ### _Colours:_
+    * The main colour theme is dark. The navigation bar and the footer are pure black with rose gold icons on it and light silver text.
 
   * ### _Font:_
-    * 
+    * I used a Lato google font for the whole website as it is nice and decorative for the theme.
  
   * ### _Images:_
-    * 
+    * All the images about the cakes are made by my wife, Roxana Mathe. The background and the logo is created by her as well.
 
 
 ## _**Testing**_
 
 * ### _W3C Validator:_
-    * 
+    * I got back the following message : Document checking completed. No errors or warnings to show. from the official [W3C Website](https://validator.w3.org/nu/?doc=https%3A%2F%2Froxys-cakes-vm.herokuapp.com%2F)
+
+    ![Image about the W3C Validator](./media/readme/images/html_validator.png)
 
 * ### _CSS Validator:_
-    * 
+    * I got back the following message: Sorry! We found the following errors (17) URI : https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css from the Jigsaw Validator which is bootstrap fault. My own CSS has no Error!
+    ![Image about the Jigsaw validator](./media/readme/images/css_validator.png)
 
 * ### _Lighthouse:_
     * I done the lighthouse check through an incognito because that is when I got back the true result which were the following:
