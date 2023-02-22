@@ -6,16 +6,16 @@
 
 {% for message in contact_messages %}
 <div class="card  m-4">
-    <div class="card-body silver-bg">
-      <h5 class="card-title">From: {{ message.email }}</h5>
-      {% if message.phone_number %}
-      <h6 class="card-subtitle mb-2 text-muted">Phone number: {{ message.phone_number }}</h6>
-      {% endif %}
-      <h6 class="card-subtitle">Subject: {{ message.subject }}</h6>
-      <p class="card-text">Message: {{ message.message }}</p>
-      <a href="{% url 'reply' message.id %}" class="card-link btn text bordered rounded-2">Reply</a>
-    </div>
+  <div class="card-body silver-bg">
+    <h5 class="card-title">From: {{ message.email }}</h5>
+    {% if message.phone_number %}
+    <h6 class="card-subtitle mb-2 text-muted">Phone number: {{ message.phone_number }}</h6>
+    {% endif %}
+    <h6 class="card-subtitle">Subject: {{ message.subject }}</h6>
+    <p class="card-text">Message: {{ message.message }}</p>
+    <a href="{% url 'reply' message.id %}" class="card-link btn text bordered rounded-2">Reply</a>
   </div>
+</div>
 {% endfor %}
 
 {% endblock %}

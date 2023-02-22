@@ -39,22 +39,24 @@
                         {% include 'quantity_form.html' %}
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p class="my-0"><strong>Subtotal:</strong> <span class="text-white">£{{ cake.cake.price | subtotal:cake.quantity }}</span></p>
+                        <p class="my-0"><strong>Subtotal:</strong> <span
+                                class="text-white">£{{ cake.cake.price | subtotal:cake.quantity }}</span></p>
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <h6><strong>Bag Total: <span class="text-white">£{{ total |floatformat:2 }}</span></strong></h6>
-                            <h6>Delivery fee: <span class="text-white">£{{ delivery_fee|floatformat:2 }}</span></h6>
-                            <h4 class="mt-4"><strong>Order Total: <span class="text-white">£{{ order_total|floatformat:2 }}</span></strong></h4>
-                            {% if free_delivery_delta > 0 %}
-                            <p class="mb-1 text-warning">
-                                You could get free delivery by spending just
-                                <strong>£{{ free_delivery_delta }}</strong>
-                                more!
-                            </p>
-                            {% endif %}
+                        <h6>Delivery fee: <span class="text-white">£{{ delivery_fee|floatformat:2 }}</span></h6>
+                        <h4 class="mt-4"><strong>Order Total: <span
+                                    class="text-white">£{{ order_total|floatformat:2 }}</span></strong></h4>
+                        {% if free_delivery_delta > 0 %}
+                        <p class="mb-1 text-warning">
+                            You could get free delivery by spending just
+                            <strong>£{{ free_delivery_delta }}</strong>
+                            more!
+                        </p>
+                        {% endif %}
                         <hr>
                         <a class="btn border text btn-lg" href="{% url 'checkout' %}">Checkout</a>
                     </div>
@@ -94,9 +96,9 @@
                             <form class="form update-form" method="POST" action="{% url 'change_bag' cake.cake_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity"
-                                            value="{{ cake.quantity }}" min="1" max="99" data-cake_id="{{ cake.cake_id }}"
-                                            id="id_qty_{{ cake.cake_id }}">
+                                    <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                                        value="{{ cake.quantity }}" min="1" max="99" data-cake_id="{{ cake.cake_id }}"
+                                        id="id_qty_{{ cake.cake_id }}">
                                 </div>
                             </form>
                             <a class="update-button btn text-info"><small>Update</small></a>
@@ -112,9 +114,11 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text text-right">
-                            <h6><strong>Bag Total: <span class="text-white">£{{ total |floatformat:2 }}</span></strong></h6>
+                            <h6><strong>Bag Total: <span class="text-white">£{{ total |floatformat:2 }}</span></strong>
+                            </h6>
                             <h6>Delivery fee: <span class="text-white">£{{ delivery_fee|floatformat:2 }}</span></h6>
-                            <h4 class="mt-4"><strong>Order Total: <span class="text-white">£{{ order_total|floatformat:2 }}</span></strong></h4>
+                            <h4 class="mt-4"><strong>Order Total: <span
+                                        class="text-white">£{{ order_total|floatformat:2 }}</span></strong></h4>
                             {% if free_delivery_delta > 0 %}
                             <p class="mb-1 text-warning">
                                 You could get free delivery by spending just

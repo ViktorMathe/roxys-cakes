@@ -3,50 +3,51 @@
 
 
 {% block content %}
-    <div class="remove-bg"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="text mb-4">My Profile</h2>
-                <hr>
+<div class="remove-bg"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="text mb-4">My Profile</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="text">Default Delivery Information</p>
+            <form class="mt-3 profile-update-form text" action="{% url 'profile' %}" method="POST"
+                id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn rounded-1 text float-right border mt-1">Update Information</button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="text">Order History</p>
+            <div class="order-history table-responsive text">
+                <table class="table text table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                {{ order.date }}
+                            </td>
+                            <td>
+                                £{{ order.order_total }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <p class="text">Default Delivery Information</p>
-                <form class="mt-3 profile-update-form text" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn rounded-1 text float-right border mt-1">Update Information</button>
-                </form>
-            </div>
-            <div class="col-12 col-lg-6">
-                <p class="text">Order History</p>
-                <div class="order-history table-responsive text">
-                    <table class="table text table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        {{ order.date }}
-                                    </td>
-                                    <td>
-                                        £{{ order.order_total }}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-{% endblock %}
+    </div>
+    {% endblock %}

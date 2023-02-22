@@ -4,12 +4,12 @@
 {% block content %}
 <div class="remove-bg"></div>
 <div class="container">
-<h2 class="text"> Contact us!</h2>
+    <h2 class="text"> Contact us!</h2>
 
-<form class="text" method="POST">
-    {% csrf_token %}
-    {{ form | crispy }}
-    <input class="btn btn-lg border text rounded-2" type="submit" value="Send">
-</form>
+    <form class="text" method="POST">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input class="btn btn-lg border text rounded-2" type="submit" value="Send">
+    </form>
 </div>
 {% endblock %}
