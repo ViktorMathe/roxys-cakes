@@ -2,9 +2,9 @@
 
 I built this website for my wife's little business what she used to have. Roxy's Cakes is a very easy to use website with bag, payment, reviews and contact features. You can browse from different categories of cakes and add them to the bag where you can process forward to the checkout page.
 
-[You can try it here on the live website!]()
+[You can try it here on the live website!](https://roxys-cakes-vm.herokuapp.com/)
 
-![Home page]()
+![Home page](./media/readme/images/home_page.png)
 
 ## _**Contents**_
 
@@ -89,7 +89,7 @@ I built this website for my wife's little business what she used to have. Roxy's
 * ### _Lighthouse:_
     * I done the lighthouse check through an incognito because that is when I got back the true result which were the following:
 
-    ![Image about the lighthouse results]()
+    ![Image about the lighthouse results](./media/readme/images/lighthouse_check.png)
 
 
 * ### _Manual testing:_
