@@ -4,7 +4,7 @@ I built this website for my wife's little business what she used to have. Roxy's
 
 [You can try it here on the live website!](https://roxys-cakes-vm.herokuapp.com/)
 
-![Home page](./media/readme/images/home_page.png)
+<img src="./media/readme/images/home_page.png" width="800" height="400">
 
 ## _**Contents**_
 
@@ -50,7 +50,7 @@ I built this website for my wife's little business what she used to have. Roxy's
  
  * You can access to the bag by click on the icon which will contains all the items what you have put it in there. You can change the quantity with the provided form and it will update the price the subtotal and calculate it how much more do you need to spend for get a free delivery. From the bag you can proceed to the checkout page.
 
- ![Image about the bag](./media/readme/images/bag.png)
+    <img src="./media/readme/images/bag.png" width="800" height="400">
 
  ### _Payment System:_
 
@@ -61,20 +61,29 @@ I built this website for my wife's little business what she used to have. Roxy's
 
      When the payment is complete the user get an email with the order details to the provided email address.
 
-     ![Image about the payment page](./media/readme/images/checkout.png)
-     ![Image about the profile page](./media/readme/images/profile.png)
+     <img src="./media/readme/images/checkout.png" width="300" height="550">
+     <img src="./media/readme/images/profile.png" width="800" height="550">
 
  ### _Reviews:_
 
  * Any user can leave a review about the shop and if they wish, image can be uploaded as well. The reviews can be edited or deleted by the person who wrote them or can be done by a superuser.
 
+    <img src="./media/readme/images/reviews.png" width="850" height="350">
+
  ### _Contact us:_
  
- *  The user can fill out the form to contact the webshop. They have to provide an email address and if they would like can write the phone number as well. The form can be answered by a superuser and send an email to the receipent.
+ *  The user can fill out the form to contact the webshop. They have to provide an email address and if they would like can add the phone number as well. The form can be answered by a superuser and send an email to the receipent.
+
+    <img src="./media/readme/images/contact_us.png" width="850" height="300">
 
  ### _Newsletter:_
 
  * Anybody can subscribe for a newsletter on the home page with their email address then they got a confirmation email. The superuser can write a newsletter for all of the subscribers and send out real emails with a unique link which is provide the option to unsubscribe.
+
+    <img src="./media/readme/images/subscribe.png" width="800" height="200">
+    <img src="./media/readme/images/newsletter.png" width="800" height="500">
+
+    
  
  ### _Future ideas:_
  
@@ -114,9 +123,9 @@ I built this website for my wife's little business what she used to have. Roxy's
 
     #### **Register New Account**
 
-    * Expected: As a User I want to able to register to the website to book my cleaning 
-    * Test: Create new account with username, create new account with already existing username, create new account with and without email address.  
-    * Outcome: If the new account has a username the account is created, if an email address is entered or not. When trying to create a new account with an existing username, the user is encouraged to choose a different username since it already exists. When the account is registered the user is logged in and is notified by an alert. 
+    * Expected: As a User I want to able to register to the website. 
+    * Test: Create new account with username, create new account with already existing username, create new account with or without email address.  
+    * Outcome: If the new account has a username the account is created, if an email address is entered because it has to be verified. When trying to create a new account with an existing username, the user is encouraged to choose a different username since it already exists. When the account is registered the user is logged in and is notified by an alert. 
 
     #### Login
 
@@ -130,28 +139,89 @@ I built this website for my wife's little business what she used to have. Roxy's
     * Test: Check Logout functionality as logged in user. 
     * Result: When clicking Logout the user is redirected to Logout page and asked to confirm that they are want to log out. When Log Out button is clicked the user is logged out and redirected to home page and an alert notifies the user that they are logged out.  
 
+
     #### **Testing as a User**
 
+    #### Add Cake to the bag
 
-    ##### Add a Review
+    * Expected : The user can add cake to the bag and can view it on the bag page.
+    * Test: Added cakes to the bag then checked it on the bag view page.
+    * Outcome: When the cake has been added I get the notification and it appeared in the bag page with.
+
+    #### Change quantity in the bag
+
+    * Expected : The user can edit the quantities of the cakes in the bag, and get a notification when it is done and the price/delivery fee is changing.
+    * Test: Changed the quantity click on update.
+    * Outcome: When the quantity has been changed I get the notification and the prices/fees are changed.
+
+    #### Delete from bag
+
+    * Expected : The user can remove a cake from the bag and the price is deducted.
+    * Test: Remove cake as a user.
+    * Outcome: When the cake has been removed I get the notification and it disappeard from the bag page and price is changed.
+
+    #### Payment system
+
+    * Expected : The user can make a payment with their card and get a confirmation email about the order.
+    * Test: Made the payment with the Stripe test card.
+    * Outcome: When the payment was done I get notification toast message and took me to the checkout success page also got an email.
+
+    #### Add a Review
 
     * Expected : The user can write a review and can upload a picture if wish, and can view it on the review page.
     * Test: Write a review as a user and upload a picture.
     * Outcome: When the review has been wrote I get the notification and it appeared on the review page with or without picture.
 
-    ##### Edit a Review
+    #### Edit a Review
 
     * Expected : The user can edit a review and can upload or delete picture if wish, and get a notification when it is done.
     * Test: Edit a review as a user and deleted a picture.
     * Outcome: When the review has been edited I get the notification and it appeared on the review page without picture.
 
-    ##### Delete a Review
+    #### Delete a Review
 
     * Expected : The user can delete a review.
     * Test: Delete a review as a user.
     * Outcome: When the review has been deleted I get the notification and it disappeard from the review page.
+
+    #### Contact Us
+
+    * Expected : The user can write a message and provide their email and send it to the store manager/owner.
+    * Test: Sent a message with subject and provide my own email address.
+    * Outcome: When the form was sent I get a notification about the manager will reply in 48 hours.
+
+    #### Newsletter
+
+    * Expected: The user can subscribe on the newsletter and get confirmation email.
+    * Test: Added the email address to the field and subscribe.
+    * Outcome: When the subscribe was successful get a confirmation email and a notification with the provided email address.
+
+    #### Unsubscribe
+
+    * Expected: When the newsletter has been sent out the user can see a unique link labeled as unsubscribe and when it is clicked the user has been taken to the home page with a notification which is said the unsubscribe was successful.
+    * Test: Clicked the link when the newsletter arrived.
+    * Outcome: The unsubscribe link took me to the home page and get the notification which showed which email has been unsubscribed.
+
     
     #### **Testing as a SuperUser**
+
+    #### Add Cake to the store
+
+    * Expected: Add cake to the store with description, image, price on the front-end.
+    * Test: On the manager menu choose the add cake option and fill out the form.
+    * Outcome: The cake has been added to the site.
+
+    #### Edit Cake on the front-end
+
+    * Expected: If logged in as a superuser, I can see an option to edit cake and get notified when I done it.
+    * Test: Choose the edit cake option and fill out the form.
+    * Outcome: The cake has been edited and got notification about it.
+
+    #### Delete Cake on the front-end
+
+    * Expected: If logged in as a superuser, I can see an option to delete cake.
+    * Test: Choose the delete cake option and clicked on it.
+    * Outcome: The cake has been removed from the shop and get a notification which cake has been deleted.
 
     ##### Edit Review
 
@@ -164,6 +234,18 @@ I built this website for my wife's little business what she used to have. Roxy's
     * Expected: The superuser is able to delete any review made by anyone.
     * Test: Delete review.
     * Outcome: The review has been deleted from the database and the frontend.
+
+    #### Contact Us messages
+
+    * Expected: When a user submit a contact us form, in the manager menu the superuser choose the messages and can reply to the message with real email.
+    * Test: Press reply under the message and the email field is already pre-populated with the right email address, sent a reply.
+    * Outcome: The reply has been sent to the receipent and got notification about it.
+
+    #### Newsletter 
+
+    * Expected: When a superuser choose the newsletter option can write it and send it all the subscribers which is cannot be changed and the subscribers can not see other email addresses and a unique unsubscribe button included in the email.
+    * Test: Wrote a newsletter and sent out to multiple subscribers at the same time.
+    * Outcome: The newsletter has been arrived and it included the unique unsubscribe link and I seen just my own email address.
 
  * ### _Solved bugs_:
 
