@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-
+<h2 class="text p-2"> Messages from the Contact Us</h2>
 {% for message in contact_messages %}
 <div class="card  m-4">
   <div class="card-body silver-bg">
@@ -13,7 +13,7 @@
     {% endif %}
     <h6 class="card-subtitle">Subject: {{ message.subject }}</h6>
     <p class="card-text">Message: {{ message.message }}</p>
-    <a href="{% url 'reply' message.id %}" class="card-link btn text bordered rounded-2">Reply</a>
+    <a href="{% url 'reply' message.id %}" class="card-link btn text border border-black rounded-2">Reply</a>
   </div>
 </div>
 {% endfor %}

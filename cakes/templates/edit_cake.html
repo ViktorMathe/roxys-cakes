@@ -3,11 +3,12 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-<div>
+<h2 class="text p-2">Edit Cake</h2>
+<div class="p-2">
     <form class="text" method="POST" action="{% url 'edit_cake' cake.id %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}
-        <button class="btn text border rounded-0" type="submit">Edit Product</button>
+        <button class="btn text border rounded-2 mt-2" type="submit">Edit Product</button>
     </form>
 </div>
 

@@ -162,6 +162,24 @@ header {
     border-radius: 35px;
 }
 
+.up-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
 /* home page on small and medium devices */
 @media (max-width: 665px) {
     #subscribe-banner h5 {
@@ -193,5 +211,10 @@ header {
 
     .facebook {
         font-size: 13px;
+    }
+
+    .box {
+        margin-top: 50px;
+        width: 100%;
     }
 }

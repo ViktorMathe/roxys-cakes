@@ -7,6 +7,7 @@
         "name": "Pistachio and Lemon Macarons",
         "description": "Pistachio and Lemon cream filling macarons.",
         "flavours": "Pistachio, Lemon",
+        "ingredients": "Almond, Pistachio paste, Lemon flavouring, Sugar, Egg",
         "price": "4.99",
         "image": "large_macarons_pistachio_lemon.jpeg"
     }
@@ -19,6 +20,7 @@
         "name": "Nutella Macarons",
         "description": "Macarons with Nutella cream filling.",
         "flavours": "Nutella",
+        "ingredients": "Almond, Nutella cream, Butter, Milk, Sugar, Egg",
         "price": "4.99",
         "image": "nutella_macarons.jpeg"
     }
@@ -31,6 +33,7 @@
         "name": "Raspberry Macarons",
         "description": "Macarons with Raspberry cream filling.",
         "flavours": "Raspberry",
+        "ingredients": "Almond, Raspberry flavouring, Butter, Sugar, Egg",
         "price": "4.99",
         "image": "raspberry_macarons.jpeg"
     }
@@ -43,6 +46,7 @@
         "name": "Salted Caramel Macarons",
         "description": "Macarons with salted caramel filling.",
         "flavours": "Salted Caramel",
+        "ingredients": "Almond, Salted Caramel, Butter, Sugar, Egg",
         "price": "4.99",
         "image": "salted_caramel_macarons.jpeg"
     }
@@ -55,6 +59,7 @@
         "name": "Strawberry Macarons",
         "description": "Macarons with fresh Strawberry cream filling.",
         "flavours": "Strawberry",
+        "ingredients": "Almond, Strawberry flavouring, Sugar, Egg, Butter",
         "price": "4.99",
         "image": "strawberry_macarons.jpeg"
     }
@@ -67,6 +72,7 @@
         "name": "Pack of Pistachio and Strawberry Macarons",
         "description": "6 pack of Strawberry and Pistachio cream filled macarons.",
         "flavours": "Pistachio, Strawberry",
+        "ingredients": "Almond, Pistachio paste, Strawberry flavouring, Sugar, Egg, Butter",
         "price": "12.99",
         "image": "pack_of_macarons_pistachio_strawberry.jpeg"
     }
@@ -211,6 +217,7 @@
         "name": "Halloween Macarons",
         "description": "Pumpkin Spice cream filled Macarons with Halloween Decoration.",
         "flavours": "Pumpkin Spice",
+        "ingredients": "Almond, Pumpkin spice cream, Butter, Sugar, Egg",
         "price": "5.99",
         "image": "halloween_macarons.jpeg"
     }
@@ -223,6 +230,7 @@
         "name": "Spider-Man Macarons",
         "description": "Nutella cream filled Macarons with hand made Spider-Man Decoration.",
         "flavours": "Nutella",
+        "ingredients": "Almond, Nutella cream, Butter, Milk, Sugar, Egg",
         "price": "5.99",
         "image": "spiderman_macarons.jpeg"
     }
@@ -235,6 +243,7 @@
         "name": " Mother's Day Macarons",
         "description": "Various flavoured Macarons with Flower sprinkles Decoration. Perfect gift to your loved one!",
         "flavours": "Various flavour",
+        "ingredients": "Almond, Pistachio paste, Lemon flavouring, Nutella cream, Strawberry flavour, Milk, Sugar, Egg, Butter",
         "price": "5.99",
         "image": "pack_of_macarons_mothers_day.jpeg"
     }

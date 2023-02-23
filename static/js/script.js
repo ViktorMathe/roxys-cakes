@@ -8,3 +8,7 @@ let toastList = toastElList.map(function (toastEl) {
   let bsToast = new bootstrap.Toast(toastEl, option)
   bsToast.show();
 })
+
+$('.btt-link').click(function(e) {
+  window.scrollTo(0,0)
+})

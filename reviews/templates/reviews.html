@@ -3,16 +3,16 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-<div class="container-fluid text-center text">
+<div class="container-fluid text p-2">
     <h1>Reviews</h1>
 </div>
-<div class="row">
+<div class="row p-2">
     <div class="col">
         <p class="text">If you wish to add a review just click <a class="btn text-info border rounder-1"
                 href="{% url 'add_review'%}">Add Review</a></p>
     </div>
 </div>
-<div class="row">
+<div class="row p-2">
     <div class="col">
         {% for review in reviews %}
         <div class="card mb-3 silver-bg" style="max-width: 540px;">

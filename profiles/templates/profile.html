@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="text mb-4">My Profile</h2>
+            <h2 class="text p-2 mb-4">My Profile</h2>
             <hr>
         </div>
     </div>
@@ -19,7 +19,7 @@
                 id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn rounded-1 text float-right border mt-1">Update Information</button>
+                <button class="btn rounded-2 text float-right border mt-2">Update Information</button>
             </form>
         </div>
         <div class="col-12 col-lg-6">
@@ -38,10 +38,22 @@
                         {% for order in orders %}
                         <tr>
                             <td>
+                                {{ order.order_number }}
+                            </td>
+                            <td>
                                 {{ order.date }}
                             </td>
                             <td>
-                                £{{ order.order_total }}
+                                <ul class="list-unstyled">
+                                    {% for cake in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ cake.cake.name }} x {{ cake.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                                £ {{ order.order_total }}
                             </td>
                         </tr>
                         {% endfor %}

@@ -3,11 +3,11 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-<h2 class="text"> Edit Review</h2>
+<h2 class="text p-2"> Edit Review</h2>
 
-<form class="text" method="POST" enctype="multipart/form-data">
+<form class="text p-2" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form | crispy }}
-    <input class="btn text" type="submit" value="Send">
+    <input class="btn rounded-2 border mt-2 text" type="submit" value="Send">
 </form>
 {% endblock %}
