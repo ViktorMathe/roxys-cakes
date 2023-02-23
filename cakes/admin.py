@@ -6,14 +6,13 @@ from .models import Cake, Category
 
 class CakesAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
         'name',
         'category',
         'price',
         'image',
     )
 
-    ordering = ('sku',)
+    ordering = ('category',)
 
 
 class CategoryAdmin(admin.ModelAdmin):

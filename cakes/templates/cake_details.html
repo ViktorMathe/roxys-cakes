@@ -5,8 +5,9 @@
 <div class="remove-bg"></div>
 <div class="col-sm-6 p-2 col-md-6 col-lg-4 col-xl-3 text">
     <img class="card-img-top img-fluid rounded-5" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-    <p>{{ cake.name }}</p>
-    <p>{{ cake.description }}</p>
+    <p class="silver-text">Name: <span class="text">{{ cake.name }}</span></p>
+    <p class="silver-text">Description: <span class="text">{{ cake.description }}</span></p>
+    <p class="silver-text">Ingredients: <span class="text">{{ cake.ingredients }}</span></p>
     <p class="text-white">£{{ cake.price }}</p>
 </div>
 

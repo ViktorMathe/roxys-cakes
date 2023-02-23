@@ -3,7 +3,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 1,
-        "sku": "mcp100001",
         "name": "Pistachio and Lemon Macarons",
         "description": "Pistachio and Lemon cream filling macarons.",
         "flavours": "Pistachio, Lemon",
@@ -16,7 +15,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 1,
-        "sku": "mcp10002",
         "name": "Nutella Macarons",
         "description": "Macarons with Nutella cream filling.",
         "flavours": "Nutella",
@@ -29,7 +27,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 1,
-        "sku": "mcp10003",
         "name": "Raspberry Macarons",
         "description": "Macarons with Raspberry cream filling.",
         "flavours": "Raspberry",
@@ -42,7 +39,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 1,
-        "sku": "mcp10004",
         "name": "Salted Caramel Macarons",
         "description": "Macarons with salted caramel filling.",
         "flavours": "Salted Caramel",
@@ -55,7 +51,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 1,
-        "sku": "mcp10005",
         "name": "Strawberry Macarons",
         "description": "Macarons with fresh Strawberry cream filling.",
         "flavours": "Strawberry",
@@ -68,7 +63,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 1,
-        "sku": "mcp100006",
         "name": "Pack of Pistachio and Strawberry Macarons",
         "description": "6 pack of Strawberry and Pistachio cream filled macarons.",
         "flavours": "Pistachio, Strawberry",
@@ -81,10 +75,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 2,
-        "sku": "ccp100001",
         "name": "White Chocolate Cupcakes",
         "description": "Cupcakes with White Chocolate cream filling.",
         "flavours": "White Chocolate",
+        "ingredients": "Chocolate, Flour, Sugar, Egg, Butter",
         "price": "6.99",
         "image": "white_chocolate_cupcake.jpeg"
     }
@@ -93,9 +87,9 @@
     "model": "cakes.cake",
     "fields": {
         "category": 2,
-        "sku": "ccp100002",
         "name": "Halloween Cupcakes",
         "description": "Tasty and Scary Halloween Cupcakes with Pumpkin Spice Cream filling.",
+        "ingredients": "Pumpkin spice cream, Butter, Sugar, Egg, Butter",
         "flavours": "Pumpkin Spice",
         "price": "7.99",
         "image": "halloween_cupcakes.jpeg"
@@ -105,10 +99,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 3,
-        "sku": "bcp100001",
         "name": "Fortnite themed Birthday Cake",
         "description": "Chocolate cream filled Birthday Cake with Fortnite Theme.",
         "flavours": "Chocolate",
+        "ingredients": "Chocolate, Flour, Sugar, Egg, Butter",
         "price": "25.99",
         "image": "fortnite_cake.jpeg"
     }
@@ -117,10 +111,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 3,
-        "sku": "bcp100002",
         "name": "Jurrassic World themed Birthday Cake",
         "description": "Chocolate cream filled Birthday Cake with Jurrassic World Theme.",
         "flavours": "Chocolate",
+        "ingredients": "Chocolate, Flour, Sugar, Egg, Butter",
         "price": "25.99",
         "image": "jurrassic_world_cake.jpeg"
     }
@@ -129,10 +123,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 3,
-        "sku": "bcp100003",
         "name": "Unicorn themed Birthday Cake",
         "description": "Nutella cream filled Birthday Cake with Unicorn theme.",
         "flavours": "Nutella",
+        "ingredients": "Nutella cream, Milk, Flour, Sugar, Egg, Butter, Food Colouring",
         "price": "25.99",
         "image": "unicorn_cake.jpeg"
     }
@@ -141,10 +135,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 3,
-        "sku": "bcp100004",
         "name": "Two-Tiers Birthday Cake",
         "description": "First tier Chocolate Cream Filling, Second tier White Chocolate cream filling with Strawberry Jelly",
         "flavours": "Chocolate, White Chocolate, Strawberry",
+        "ingredients": "Chocolate, Strawberry, Flour, Butter, Sugar, Egg",
         "price": "34.99",
         "image": "large_cake.jpeg"
     }
@@ -153,10 +147,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 4,
-        "sku": "hcp100001",
         "name": "Zserbo",
         "description": "Apricot jam mixed with Walnut filling in multiple layers with a hard Chocolate top.",
         "flavours": "Apricot, Walnut, Chocolate",
+        "ingredients": "Walnut, Apricot Jam, Chocolate, Flour, Sugar, Egg",
         "price": "15.99",
         "image": "zserbo.jpeg"
     }
@@ -165,10 +159,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100001",
         "name": "Fancy Meringues",
         "description": "Fancy looked Meringues.",
         "flavours": "Meringue",
+        "ingredients": "Sugar, Egg, Food colouring",
         "price": "3.99",
         "image": "fancy_meringues.jpeg"
     }
@@ -177,10 +171,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100002",
         "name": "Galaxy Mousse Cake",
         "description": "Nutella flavoured Mousse Cake with Galaxy style mirror glazed top if you wish something light and beautiful.Great choice for a Galaxy lover friend.",
         "flavours": "Nutella",
+        "ingredients": "Nutella cream, Milk, Flour, Sugar, Egg",
         "price": "19.99",
         "image": "galaxy_mousse_cake.jpeg"
     }
@@ -189,10 +183,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100003",
         "name": "Island Cake",
         "description": "Island look-alike cake with Chocolate filling. Looks just amazing and tasty!",
         "flavours": "Chocolate, Jelly",
+        "ingredients": "Jelly, Chocolate, Flour, Sugar, Egg",
         "price": "19.99",
         "image": "island_cake.jpeg"
     }
@@ -201,10 +195,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100004",
         "name": "Mousse Cake",
         "description": "Raspberry jelly filled Mousse Cake with Mirror Glazed finish.",
         "flavours": "Raspberry",
+        "ingredients": "Raspberry jam, Milk, Flour, Sugar, Egg",
         "price": "19.99",
         "image": "mousse_cake.jpeg"
     }
@@ -213,7 +207,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100005",
         "name": "Halloween Macarons",
         "description": "Pumpkin Spice cream filled Macarons with Halloween Decoration.",
         "flavours": "Pumpkin Spice",
@@ -226,7 +219,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100006",
         "name": "Spider-Man Macarons",
         "description": "Nutella cream filled Macarons with hand made Spider-Man Decoration.",
         "flavours": "Nutella",
@@ -239,7 +231,6 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100007",
         "name": " Mother's Day Macarons",
         "description": "Various flavoured Macarons with Flower sprinkles Decoration. Perfect gift to your loved one!",
         "flavours": "Various flavour",
@@ -252,10 +243,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100008",
         "name": "Pistachio Mousse",
         "description": "Pistachio Mousse with Raspberry Jelly with Whipped Cream top in little jars.",
         "flavours": "Pistachio, Raspberry",
+        "ingredients": "Pistachio cream/pieces, Raspberry jam, Milk, Sugar, Mascarpone",
         "price": "5.99",
         "image": "pistachio_mousse.jpeg"
     }
@@ -264,10 +255,10 @@
     "model": "cakes.cake",
     "fields": {
         "category": 5,
-        "sku": "ocp100009",
         "name": "Standing Cake",
         "description": "Snickers filled cake. A unique cake with even more unique decoration.",
         "flavours": "Caramel, Peanut, Chocolate",
+        "ingredients": "Caramel, Peanut pieces, Chocolate Cream, Flour, Butter, Milk, Sugar, Egg",
         "price": "25.99",
         "image": "standing_cake.jpeg"
     }
