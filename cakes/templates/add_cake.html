@@ -3,8 +3,8 @@
 
 {% block content %}
 <div class="remove-bg"></div>
-<h2 class="text p-2"> Add Cake</h2>
 <div class="container p-2">
+    <h2 class="text p-2"> Add Cake</h2>
     <form class="text" method="POST" action="{% url 'add_cake' %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}
