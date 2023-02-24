@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container box text rounded-2 mt-3 p-2">
@@ -8,7 +9,7 @@
         <div class="col">
             <form method="POST">
                 {% csrf_token %}
-                <div class="text text-center"> {{ form }}
+                <div class="text text-center"> {{ form | crispy }}
                     <button class="text border btn">Subscribe!</button>
                 </div>
             </form>

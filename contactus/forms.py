@@ -11,9 +11,9 @@ class Contact_usForm(ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'phone_number': 'Phone Number (Optional)',
-            'email': 'Email Address',
-            'subject': 'Subject',
-            'message': 'Message'
+            'email': 'Email Address*',
+            'subject': 'Subject*',
+            'message': 'Message*'
         }
 
         for field in self.fields:

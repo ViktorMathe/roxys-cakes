@@ -168,7 +168,6 @@ def checkout_success(request, order_number):
             [email_to]
             )
 
-
     if 'bag' in request.session:
         del request.session['bag']
 

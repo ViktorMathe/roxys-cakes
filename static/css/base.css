@@ -180,6 +180,10 @@ header {
     border: 1px solid black !important;
 }
 
+.form-group {
+    margin: 10px;
+}
+
 /* home page on small and medium devices */
 @media (max-width: 665px) {
     #subscribe-banner h5 {
