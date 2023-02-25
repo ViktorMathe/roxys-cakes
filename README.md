@@ -11,6 +11,7 @@ I built this website for my wife's little business what she used to have. Roxy's
 * [User Stories](#user-stories)
 
 * [Features](#features)
+    * [UI](#ui)
     * [Bag](#bag)
     * [Payment system](#payment-system)
     * [Reviews](#reviews)
@@ -42,13 +43,17 @@ I built this website for my wife's little business what she used to have. Roxy's
 
 * I uploaded my User Stories on to my workspace you can find the PDF file [here](./media/readme/user_story/Roxy's%20Cakes%20User%20Stories%20-%20Sheet1.pdf)
  
-* You can find the agile method to my user stories on my github repo just click [here](https://github.com/users/ViktorMathe/projects/5/views/1)
+* You can find the agile method to my user stories on my github repo just click [here](https://github.com/users/ViktorMathe/projects/6)
 
 ## _**Features**_
 
  ### _UI:_
 
  * I made some wireframes what you can have a look on this [link](./media/readme/wireframe/wireframe.md)
+
+ * I made a database scheme with LucidChart. 
+
+    <img src="./media/readme/images/db_schema.png" width="600" height="500">
 
  ### _Bag:_
  
