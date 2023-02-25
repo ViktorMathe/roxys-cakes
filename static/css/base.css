@@ -184,6 +184,14 @@ header {
     margin: 10px;
 }
 
+.blue-text {
+    color: #65c1fb;
+}
+
+.red-text {
+    color: #ff8a8a;
+}
+
 /* home page on small and medium devices */
 @media (max-width: 665px) {
     #subscribe-banner h5 {

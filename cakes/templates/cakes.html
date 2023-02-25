@@ -35,8 +35,8 @@
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <small class="ml-3">
-                                    <a href="{% url 'edit_cake' cake.id %}">Edit</a> |
-                                    <a class="text-danger" href="{% url 'delete_cake' cake.id %}">Delete</a>
+                                    <a class="blue-text" href="{% url 'edit_cake' cake.id %}">Edit</a> |
+                                    <a class="red-text" href="{% url 'delete_cake' cake.id %}">Delete</a>
                                 </small>
                                 {% endif %}
                                 {% endif %}

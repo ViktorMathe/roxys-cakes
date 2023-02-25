@@ -13,7 +13,7 @@
     {% endif %}
     <h6 class="card-subtitle">Subject: {{ message.subject }}</h6>
     <p class="card-text">Message: {{ message.message }}</p>
-    <a href="{% url 'reply' message.id %}" class="card-link btn text border border-black rounded-2">Reply</a>
+    <a href="{% url 'reply' message.id %}" class="card-link btn blue-text box border border-black rounded-2">Reply</a>
   </div>
 </div>
 {% endfor %}

@@ -40,8 +40,8 @@
         </div>
         {% if review.name == request.user or request.user.is_superuser %}
         <div class="col">
-            <a href="{% url 'edit_review' review.id %}" class="btn text">Edit Review</a>
-            <a href="{% url 'delete_review' review.id %}" class="btn text-danger">Delete Review</a>
+            <a href="{% url 'edit_review' review.id %}" class="btn blue-text">Edit Review</a>
+            <a href="{% url 'delete_review' review.id %}" class="btn red-text">Delete Review</a>
         </div>
         {% endif %}
         {% endfor %}
