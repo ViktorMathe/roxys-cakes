@@ -46,6 +46,10 @@ I built this website for my wife's little business what she used to have. Roxy's
 
 ## _**Features**_
 
+ ### _UI:_
+
+ * I made some wireframes what you can have a look on this [link](./media/readme/wireframe/wireframe.md)
+
  ### _Bag:_
  
  * You can access to the bag by click on the icon which will contains all the items what you have put it in there. You can change the quantity with the provided form and it will update the price the subtotal and calculate it how much more do you need to spend for get a free delivery. From the bag you can proceed to the checkout page.

@@ -126,3 +126,6 @@ If you would like to go back to the README file click here:
 * Expected: When a superuser choose the newsletter option can write it and send it all the subscribers which is cannot be changed and the subscribers can not see other email addresses and a unique unsubscribe button included in the email.
 * Test: Wrote a newsletter and sent out to multiple subscribers at the same time.
 * Outcome: The newsletter has been arrived and it included the unique unsubscribe link and I seen just my own email address.
+
+If you would like to go back to the README file click here: 
+    [README](/README.md)
