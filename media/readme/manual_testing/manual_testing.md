@@ -46,6 +46,11 @@ If you would like to go back to the README file click here:
 * Test: Made the payment with the Stripe test card.
 * Outcome: When the payment was done I get notification toast message and took me to the checkout success page also got an email.
 
+* I tested all the webhooks and the payments if they are went through with the test card or failed with the insufficient funds test card. All test was successful. I attached images about them below.
+
+![Stripe Payment](/media/readme/images/stripe_payments.png)
+![Stripe Webhooks](/media/readme/images/stripe_wh.png)
+
 #### Add a Review
 
 * Expected : The user can write a review and can upload a picture if wish, and can view it on the review page.

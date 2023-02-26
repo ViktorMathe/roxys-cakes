@@ -1,6 +1,6 @@
 # **Roxy's Cakes** 
 
-I built this website for my wife's little business what she used to have. Roxy's Cakes is a very easy to use website with bag, payment, reviews, contact us and newsletter features. You can browse from different cakes and add them to the bag where you can process forward to the checkout page.
+I built this website for my wife's little business what she used to have. Roxy's Cakes is has been made to anybody who likes little treats or would like to surprise a relative or friend on any occasions. The customer can subscribe to the newsletter where they can get information about any new cakes which becomes available or any deals for example now the shop offer free delivery if they spend over £30. Anybody can find the shop on the [Facebook](https://www.facebook.com/people/Roxys-Cakes/100090725342238/) as well (which might not be available due to the inactivity as this is just an educational site and the Facebook is remove it, in that case you can find a screenshot below). The customer can browse from different cakes and add them to the bag where you can process forward to the checkout page.
 
 [You can try it here on the live website!](https://roxys-cakes-vm.herokuapp.com/)
 
@@ -11,15 +11,19 @@ I built this website for my wife's little business what she used to have. Roxy's
 * [User Stories](#user-stories)
 
 * [Features](#features)
-    * [UI](#ui)
+    * [Database](#database)
+    * [Navbar](#navbar)
+    * [Cakes](#cakes)
     * [Bag](#bag)
     * [Payment system](#payment-system)
     * [Reviews](#reviews)
     * [Contact us](#contact-us)
     * [Newsletter](#newsletter)
+    * [Facebook Shop](#facebook-shop)
     * [Future ideas](#future-ideas)
 
 * [Design](#design)
+    * [Wireframe](#wireframe)
     * [Colours](#colours)
     * [Font](#font)
     * [Images](#images)
@@ -27,6 +31,7 @@ I built this website for my wife's little business what she used to have. Roxy's
 * [Testing](#testing)
     * [W3C Validator](#w3c-validator)
     * [CSS Validator](#css-validator)
+    * [PEP8 Validator](#pep8-validator)
     * [Lighthouse](#lighthouse)
     * [SEO](#seo)
     * [Manual testing](#manual-testing)
@@ -47,13 +52,26 @@ I built this website for my wife's little business what she used to have. Roxy's
 
 ## _**Features**_
 
- ### _UI:_
-
- * I made some wireframes what you can have a look on this [link](./media/readme/wireframe/wireframe.md)
+ ### _Database:_
 
  * I made a database scheme with LucidChart. 
 
     <img src="./media/readme/images/db_schema.png" width="600" height="500">
+
+ ### _Navbar:_
+ 
+ * I made the navbar to easy to read and navigate on the whole website. If you are on desktop tablet or mobile.
+ ![Navbar](./media/readme/images/navbar.png)
+
+   <img src="./media/readme/images/mobile_navbar.png" width="400" height="250">
+
+
+ ### _Cakes:_
+
+ * If you click to enter the shop or the cakes menu on the navbar it takes you to all the cakes where you can choose to add the cakes to the bag or you would like to have more details about the product. The details menu shows you what ingredients they have in the cake and you can choose how many cakes would you like to add to the bag.
+
+  <img src="./media/readme/images/cakes.png" width="400" height="250"> <img src="./media/readme/images/cake_details.png" width="320" height="450">
+
 
  ### _Bag:_
  
@@ -92,6 +110,12 @@ I built this website for my wife's little business what she used to have. Roxy's
     <img src="./media/readme/images/subscribe.png" width="800" height="200">
     <img src="./media/readme/images/newsletter.png" width="800" height="500">
 
+
+ ### _Facebook shop:_
+
+ * I created a page on the Facebook with some information and action buttons to advertise the website so it can reach more people. If the link above in the description is not working anymore I took a screenshot about the page.
+
+   <img src="./media/readme/images/facebook.png" width="320" height="450">
     
  
  ### _Future ideas:_
@@ -101,8 +125,17 @@ I built this website for my wife's little business what she used to have. Roxy's
 
 ## _**Design**_
 
+ * ### _Wireframe:_
+  * I made wireframes on the [wireframe.cc](https://wireframe.cc/) what you can have a look on this [link](./media/readme/wireframe/wireframe.md)
+
   * ### _Colours:_
     * The main colour theme is dark. The navigation bar and the footer are pure black with rose gold icons on it and light silver text.
+        * Background colour: #212121
+        * Text/Icon colour: #ce9988
+        * Edit button colour: #65c1fb
+        * Delete button colour: #ff8a8a
+        * Silver text colour: #a2a2a3
+    * All colours has been checked for good contrast ratio on the [Accessible WEB website](https://accessibleweb.com/color-contrast-checker/)!
 
   * ### _Font:_
     * I used a Lato google font for the whole website as it is nice and decorative for the theme.
