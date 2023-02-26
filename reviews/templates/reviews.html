@@ -8,8 +8,13 @@
 </div>
 <div class="row p-2">
     <div class="col">
+        {% if request.user.is_authenticated %}
         <p class="text">If you wish to add a review just click <a class="btn text-info border rounder-1"
                 href="{% url 'add_review'%}">Add Review</a></p>
+        {% else %}
+        <p class="text">If you would like to leave a review please <a class="text-info" href="{% url 'account_login' %}">Login</a> or
+        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> </p>
+        {% endif %}
     </div>
 </div>
 <div class="row p-2">
