@@ -4,8 +4,8 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import Contact_usForm
-from .models import Contact_us
+from .forms import Contact_usForm, ReplyForm
+from .models import Contact_us, Reply
 
 
 def contact_us(request):
@@ -33,9 +33,9 @@ def contact_messages(request):
 @login_required
 def reply(request, contact_us_id):
     user = get_object_or_404(Contact_us, pk=contact_us_id)
-    reply_form = Contact_usForm()
+    reply_form = ReplyForm()
     if request.method == 'POST':
-        reply_form = Contact_usForm(request.POST)
+        reply_form = ReplyForm(request.POST)
         post_data = request.POST.copy()
         if reply_form.is_valid():
             email = post_data.get('email',)
@@ -48,13 +48,24 @@ def reply(request, contact_us_id):
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email])
             messages.success(
                 request, f'The reply email has been sent to the {user.email}')
+            Contact_us.objects.filter(pk=contact_us_id).update(answered=True)
+            reply_form.save()
             return redirect('messages')
     else:
         reply_form = Contact_usForm(initial={'email': user.email,
-                                    'subject': f'Re: {user.subject}'})
+                                    'subject': f'Re: {user.subject}',
+                                             })
     context = {
         'reply_form': reply_form,
         'user': user,
     }
     template = 'reply.html'
+    return render(request, template, context)
+
+
+@login_required
+def reply_messages(request):
+    reply_messages = Reply.objects.filter()
+    context = {'reply_messages': reply_messages}
+    template = 'reply_messages.html'
     return render(request, template, context)
