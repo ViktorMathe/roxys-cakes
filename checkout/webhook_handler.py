@@ -1,5 +1,4 @@
 from django.http import HttpResponse
-from django.conf import settings
 from .models import Checkout, CheckoutLine
 from cakes.models import Cake
 from profiles.models import Profile

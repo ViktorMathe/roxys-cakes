@@ -1,6 +1,6 @@
 # **Roxy's Cakes** 
 
-I built this website for my wife's little business what she used to have. Roxy's Cakes is has been made to anybody who likes little treats or would like to surprise a relative or friend on any occasions. The customer can subscribe to the newsletter where they can get information about any new cakes which becomes available or any deals for example now the shop offer free delivery if they spend over £30. Anybody can find the shop on the [Facebook](https://www.facebook.com/people/Roxys-Cakes/100090725342238/) as well (which might not be available due to the inactivity as this is just an educational site and the Facebook is remove it, in that case you can find a screenshot below). The customer can browse from different cakes and add them to the bag where you can process forward to the checkout page.
+I built this website for my wife's little business what she used to have. Roxy's Cakes is has been made to anybody who likes little treats or would like to surprise a relative or friend on any occasions and would like to buy it with a few click and will be deliver to their door. The customer can subscribe to the newsletter where they can get information about any new cakes which becomes available or any deals for example now the shop offer free delivery if they spend over £30. Anybody can find the shop on the [Facebook](https://www.facebook.com/people/Roxys-Cakes/100090725342238/) as well (which might not be available due to the inactivity as this is just an educational site and the Facebook is remove it, in that case you can find a screenshot below). The customer can browse from different cakes and add them to the bag where you can process forward to the checkout page.
 
 [You can try it here on the live website!](https://roxys-cakes-vm.herokuapp.com/)
 
@@ -31,7 +31,7 @@ I built this website for my wife's little business what she used to have. Roxy's
 * [Testing](#testing)
     * [W3C Validator](#w3c-validator)
     * [CSS Validator](#css-validator)
-    * [PEP8 Validator](#pep8-validator)
+    * [FLAKE8 Validator](#flake8-validator)
     * [Lighthouse](#lighthouse)
     * [SEO](#seo)
     * [Manual testing](#manual-testing)
@@ -149,16 +149,21 @@ I built this website for my wife's little business what she used to have. Roxy's
 * ### _W3C Validator:_
     * I got back the following message : Document checking completed. No errors or warnings to show. from the official [W3C Website](https://validator.w3.org/nu/?doc=https%3A%2F%2Froxys-cakes-vm.herokuapp.com%2F)
 
-    ![Image about the W3C Validator](./media/readme/images/html_validator.png)
+      ![Image about the W3C Validator](./media/readme/images/html_validator.png)
 
 * ### _CSS Validator:_
     * I got back the following message: Sorry! We found the following errors (17) URI : https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css from the Jigsaw Validator which is bootstrap fault. My own CSS has no Error!
-    ![Image about the Jigsaw validator](./media/readme/images/css_validator.png)
+      ![Image about the Jigsaw validator](./media/readme/images/css_validator.png)
+
+* ### _FLAKE8 Validator:_
+    * I used FLAKE8 validator on the gitpod instead of the PEP8 validator since the website is down. The validator gave result of 2 errors which is can not be changed hence one of them is the "import.signal" command in the checkout apps.py which is handling the update total price and delete on the site, the other one is "handler404" command in the urls.py which is handling the custom 404 page on the deployed site.
+
+        <img src="./media/readme/images/flake8.png" width="750" height="100">
 
 * ### _Lighthouse:_
     * I done the lighthouse check through an incognito because that is when I got back the true result which were the following:
 
-    ![Image about the lighthouse results](./media/readme/images/lighthouse_check.png)
+      ![Image about the lighthouse results](./media/readme/images/lighthouse_check.png)
 
 
 * ### _Manual testing:_
@@ -280,3 +285,4 @@ I built this website for my wife's little business what she used to have. Roxy's
     * I would like to give credit to my mentor, the tutors helped me a lot during this project. I am really aprreciate it.
 
     * The logo was made by my wife, Roxana Mathe done it with Adobe Photoshop.
+

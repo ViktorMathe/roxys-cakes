@@ -34,6 +34,8 @@ If you would like to go back to the README file click here:
 * Test: Changed the quantity click on update.
 * Outcome: When the quantity has been changed I get the notification and the prices/fees are changed.
 
+* If the user don't put any number in the input field and press update the product will be deleted from the bag and get an error message about they need to provide a number to change the quantity.
+
 #### Delete from bag
 
 * Expected : The user can remove a cake from the bag and the price is deducted.

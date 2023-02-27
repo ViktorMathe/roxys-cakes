@@ -17,7 +17,8 @@ COLOURS = {"red": "\033[31m",
            "reset": "\033[0m",
            "bold": "\033[1m"}
 
-BASE_URL = "https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/main/"
+BASE_URL = (
+    "https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/main/")
 CURRENT_VERSION = 1.0
 THIS_VERSION = 1.0
 
