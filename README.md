@@ -3,8 +3,8 @@
 I built this website for my wife's little business what she used to have. Roxy's Cakes is has been made to anybody who likes little treats or would like to surprise a relative or friend on any occasions and would like to buy it with a few click and will be deliver to their door. The customer can subscribe to the newsletter where they can get information about any new cakes which becomes available or any deals for example now the shop offer free delivery if they spend over £30. Anybody can find the shop on the [Facebook](https://www.facebook.com/people/Roxys-Cakes/100090725342238/) as well (which might not be available due to the inactivity as this is just an educational site and the Facebook is remove it, in that case you can find a screenshot below). The customer can browse from different cakes and add them to the bag where you can process forward to the checkout page.
 
 [You can try it here on the live website!](https://roxys-cakes-vm.herokuapp.com/)
-
-<img src="./media/readme/images/home_page.png" width="800" height="400">
+ 
+  ![Home page](./media/readme/images/home_page.png)
 
 ## _**Contents**_
 
@@ -55,13 +55,13 @@ I built this website for my wife's little business what she used to have. Roxy's
  ### _Database:_
 
  * I made a database scheme with LucidChart. 
-
-    <img src="./media/readme/images/db_schema.png" width="600" height="500">
+    
+    ![asd](./media/readme/images/db_schema.png)
 
  ### _Navbar:_
  
  * I made the navbar to easy to read and navigate on the whole website. If you are on desktop tablet or mobile.
- ![Navbar](./media/readme/images/navbar.png)
+  ![Navbar](./media/readme/images/navbar.png)
 
    <img src="./media/readme/images/mobile_navbar.png" width="400" height="250">
 
@@ -70,14 +70,16 @@ I built this website for my wife's little business what she used to have. Roxy's
 
  * If you click to enter the shop or the cakes menu on the navbar it takes you to all the cakes where you can choose to add the cakes to the bag or you would like to have more details about the product. The details menu shows you what ingredients they have in the cake and you can choose how many cakes would you like to add to the bag.
 
-  <img src="./media/readme/images/cakes.png" width="400" height="250"> <img src="./media/readme/images/cake_details.png" width="320" height="450">
+   ![Cakes](./media/readme/images/cakes.png)
+  
+   ![Cake Details](./media/readme/images/cake_details.png)
 
 
  ### _Bag:_
  
  * You can access to the bag by click on the icon which will contains all the items what you have put it in there. You can change the quantity with the provided form and it will update the price the subtotal and calculate it how much more do you need to spend for get a free delivery. From the bag you can proceed to the checkout page.
 
-    <img src="./media/readme/images/bag.png" width="800" height="400">
+    ![Shopping bag](./media/readme/images/bag.png)
 
  ### _Payment System:_
 
@@ -89,33 +91,34 @@ I built this website for my wife's little business what she used to have. Roxy's
      When the payment is complete the user get an email with the order details to the provided email address.
 
      <img src="./media/readme/images/checkout.png" width="270" height="450">
-     <img src="./media/readme/images/profile.png" width="350" height="450">
+     <img src="./media/readme/images/profile.png" width="550" height="450">
 
  ### _Reviews:_
 
- * Any user can leave a review about the shop and if they wish, image can be uploaded as well. The reviews can be edited or deleted by the person who wrote them or can be done by a superuser.
+ * Any registered user can leave a review about the shop and if they wish, image can be uploaded as well. The reviews can be edited or deleted by the person who wrote them or can be done by a superuser.
 
-    <img src="./media/readme/images/reviews.png" width="850" height="350">
+    ![Reviews](./media/readme/images/reviews.png)
 
  ### _Contact us:_
  
  *  The user can fill out the form to contact the webshop. They have to provide an email address and if they would like can add the phone number as well. The form can be answered by a superuser and send an email to the receipent.
 
-    <img src="./media/readme/images/contact_us.png" width="850" height="300">
+    ![Contact us](./media/readme/images/contact_us.png)
 
  ### _Newsletter:_
 
  * Anybody can subscribe for a newsletter on the home page with their email address then they got a confirmation email. The superuser can write a newsletter for all of the subscribers and send out real emails with a unique link which is provide the option to unsubscribe.
 
-    <img src="./media/readme/images/subscribe.png" width="800" height="200">
-    <img src="./media/readme/images/newsletter.png" width="800" height="500">
+    ![Subscribe](./media/readme/images/subscribe.png)
+
+    ![Newsletter](./media/readme/images/newsletter.png)
 
 
  ### _Facebook shop:_
 
  * I created a page on the Facebook with some information and action buttons to advertise the website so it can reach more people. If the link above in the description is not working anymore I took a screenshot about the page.
 
-   <img src="./media/readme/images/facebook.png" width="320" height="450">
+   ![Facebook shop](./media/readme/images/facebook.png)
     
  
  ### _Future ideas:_
@@ -152,7 +155,7 @@ I built this website for my wife's little business what she used to have. Roxy's
       ![Image about the W3C Validator](./media/readme/images/html_validator.png)
 
 * ### _CSS Validator:_
-    * I got back the following message: Sorry! We found the following errors (17) URI : https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css from the Jigsaw Validator which is bootstrap fault. My own CSS has no Error!
+    * I copied my CSS file in the Jigsaw validator hence when I check the website the Bootstrap's own CSS gave errors. My own CSS has no errors!
       ![Image about the Jigsaw validator](./media/readme/images/css_validator.png)
 
 * ### _FLAKE8 Validator:_
